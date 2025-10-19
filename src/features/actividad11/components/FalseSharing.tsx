@@ -28,12 +28,7 @@ export default function FalseSharing() {
   const [alignmentRunning, setAlignmentRunning] = useState(false);
   const [alignmentSpeed, setAlignmentSpeed] = useState(500);
   const [alignmentPhase, setAlignmentPhase] = useState(0);
-  const [alignmentStructures, setAlignmentStructures] = useState([
-    { name: "Unaligned", offset: 0, size: 12, aligned: false, cacheLine: 0 },
-    { name: "Unaligned", offset: 12, size: 12, aligned: false, cacheLine: 0 },
-    { name: "Aligned", offset: 0, size: 16, aligned: true, cacheLine: 0 },
-    { name: "Aligned", offset: 64, size: 16, aligned: true, cacheLine: 1 },
-  ]);
+  // alignmentStructures removed (not used) to avoid unused-variable warnings
   const [alignmentCrossings, setAlignmentCrossings] = useState({ unaligned: 0, aligned: 0 });
   const [alignmentLogs, setAlignmentLogs] = useState<LogEntry[]>([]);
 
@@ -55,10 +50,7 @@ export default function FalseSharing() {
   const [structureRunning, setStructureRunning] = useState(false);
   const [structureSpeed, setStructureSpeed] = useState(500);
   const [structurePhase, setStructurePhase] = useState(0);
-  const [structureLayouts, setStructureLayouts] = useState([
-    { name: "Bad Layout", fields: ["readFreq", "writeFreq1", "writeFreq2", "readOnly"], falseSharingRisk: "high" },
-    { name: "Good Layout", fields: ["readFreq", "readOnly", "writeFreq1", "writeFreq2"], falseSharingRisk: "low" },
-  ]);
+  // structureLayouts removed (not used) to avoid unused-variable warnings
   const [structureAccesses, setStructureAccesses] = useState({ badLayout: 0, goodLayout: 0 });
   const [structureLogs, setStructureLogs] = useState<LogEntry[]>([]);
 
@@ -342,12 +334,6 @@ export default function FalseSharing() {
   const resetAlignment = () => {
     setAlignmentRunning(false);
     setAlignmentPhase(0);
-    setAlignmentStructures([
-      { name: "Unaligned", offset: 0, size: 12, aligned: false, cacheLine: 0 },
-      { name: "Unaligned", offset: 12, size: 12, aligned: false, cacheLine: 0 },
-      { name: "Aligned", offset: 0, size: 16, aligned: true, cacheLine: 0 },
-      { name: "Aligned", offset: 64, size: 16, aligned: true, cacheLine: 1 },
-    ]);
     setAlignmentCrossings({ unaligned: 0, aligned: 0 });
     setAlignmentLogs([]);
   };
@@ -369,10 +355,6 @@ export default function FalseSharing() {
   const resetStructure = () => {
     setStructureRunning(false);
     setStructurePhase(0);
-    setStructureLayouts([
-      { name: "Bad Layout", fields: ["readFreq", "writeFreq1", "writeFreq2", "readOnly"], falseSharingRisk: "high" },
-      { name: "Good Layout", fields: ["readFreq", "readOnly", "writeFreq1", "writeFreq2"], falseSharingRisk: "low" },
-    ]);
     setStructureAccesses({ badLayout: 0, goodLayout: 0 });
     setStructureLogs([]);
   };
