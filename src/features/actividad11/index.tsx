@@ -87,11 +87,12 @@ export default function Actividad11() {
             Haz clic en cualquier problema para explorar su análisis completo:
           </p>
 
-          <div className="grid md:grid-cols-3 lg:grid-cols-5 gap-4">
+            <div className="grid md:grid-cols-3 lg:grid-cols-5 gap-4">
             {problemas.map((problema) => (
               <Link
                 key={problema.id}
-                to={`/actividad11/${problema.id}` as any}
+                // @ts-expect-error: dynamic route string
+                to={`/ActividadesSeminarioSO/actividad11/${problema.id}`}
                 className={`block rounded-lg bg-gradient-to-br ${problema.color} p-6 shadow-lg transition-all hover:shadow-xl hover:scale-105`}
               >
                 <div className="text-4xl mb-3">{problema.icon}</div>
