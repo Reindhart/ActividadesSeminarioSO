@@ -15,9 +15,21 @@ import { Route as Actividad12RouteImport } from './routes/actividad12'
 import { Route as Actividad11RouteImport } from './routes/actividad11'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as Actividad11IndexRouteImport } from './routes/actividad11/index'
+import { Route as Actividad11ThunderingHerdRouteImport } from './routes/actividad11/thundering-herd'
 import { Route as Actividad11StarvationRouteImport } from './routes/actividad11/starvation'
+import { Route as Actividad11PriorityInversionRouteImport } from './routes/actividad11/priority-inversion'
+import { Route as Actividad11MemoryConsistencyRouteImport } from './routes/actividad11/memory-consistency'
+import { Route as Actividad11LostWakeupRouteImport } from './routes/actividad11/lost-wakeup'
+import { Route as Actividad11LivelockRouteImport } from './routes/actividad11/livelock'
+import { Route as Actividad11LecturaEscrituraRouteImport } from './routes/actividad11/lectura-escritura'
+import { Route as Actividad11FalseSharingRouteImport } from './routes/actividad11/false-sharing'
+import { Route as Actividad11EventosRouteImport } from './routes/actividad11/eventos'
 import { Route as Actividad11DeadlockRouteImport } from './routes/actividad11/deadlock'
+import { Route as Actividad11ConvoyingRouteImport } from './routes/actividad11/convoying'
+import { Route as Actividad11ContencionRecursosRouteImport } from './routes/actividad11/contencion-recursos'
 import { Route as Actividad11CondicionCarreraRouteImport } from './routes/actividad11/condicion-carrera'
+import { Route as Actividad11BloqueosInnecesariosRouteImport } from './routes/actividad11/bloqueos-innecesarios'
+import { Route as Actividad11AbaRouteImport } from './routes/actividad11/aba'
 
 const Actividad14Route = Actividad14RouteImport.update({
   id: '/actividad14',
@@ -49,9 +61,53 @@ const Actividad11IndexRoute = Actividad11IndexRouteImport.update({
   path: '/',
   getParentRoute: () => Actividad11Route,
 } as any)
+const Actividad11ThunderingHerdRoute =
+  Actividad11ThunderingHerdRouteImport.update({
+    id: '/thundering-herd',
+    path: '/thundering-herd',
+    getParentRoute: () => Actividad11Route,
+  } as any)
 const Actividad11StarvationRoute = Actividad11StarvationRouteImport.update({
   id: '/starvation',
   path: '/starvation',
+  getParentRoute: () => Actividad11Route,
+} as any)
+const Actividad11PriorityInversionRoute =
+  Actividad11PriorityInversionRouteImport.update({
+    id: '/priority-inversion',
+    path: '/priority-inversion',
+    getParentRoute: () => Actividad11Route,
+  } as any)
+const Actividad11MemoryConsistencyRoute =
+  Actividad11MemoryConsistencyRouteImport.update({
+    id: '/memory-consistency',
+    path: '/memory-consistency',
+    getParentRoute: () => Actividad11Route,
+  } as any)
+const Actividad11LostWakeupRoute = Actividad11LostWakeupRouteImport.update({
+  id: '/lost-wakeup',
+  path: '/lost-wakeup',
+  getParentRoute: () => Actividad11Route,
+} as any)
+const Actividad11LivelockRoute = Actividad11LivelockRouteImport.update({
+  id: '/livelock',
+  path: '/livelock',
+  getParentRoute: () => Actividad11Route,
+} as any)
+const Actividad11LecturaEscrituraRoute =
+  Actividad11LecturaEscrituraRouteImport.update({
+    id: '/lectura-escritura',
+    path: '/lectura-escritura',
+    getParentRoute: () => Actividad11Route,
+  } as any)
+const Actividad11FalseSharingRoute = Actividad11FalseSharingRouteImport.update({
+  id: '/false-sharing',
+  path: '/false-sharing',
+  getParentRoute: () => Actividad11Route,
+} as any)
+const Actividad11EventosRoute = Actividad11EventosRouteImport.update({
+  id: '/eventos',
+  path: '/eventos',
   getParentRoute: () => Actividad11Route,
 } as any)
 const Actividad11DeadlockRoute = Actividad11DeadlockRouteImport.update({
@@ -59,12 +115,34 @@ const Actividad11DeadlockRoute = Actividad11DeadlockRouteImport.update({
   path: '/deadlock',
   getParentRoute: () => Actividad11Route,
 } as any)
+const Actividad11ConvoyingRoute = Actividad11ConvoyingRouteImport.update({
+  id: '/convoying',
+  path: '/convoying',
+  getParentRoute: () => Actividad11Route,
+} as any)
+const Actividad11ContencionRecursosRoute =
+  Actividad11ContencionRecursosRouteImport.update({
+    id: '/contencion-recursos',
+    path: '/contencion-recursos',
+    getParentRoute: () => Actividad11Route,
+  } as any)
 const Actividad11CondicionCarreraRoute =
   Actividad11CondicionCarreraRouteImport.update({
     id: '/condicion-carrera',
     path: '/condicion-carrera',
     getParentRoute: () => Actividad11Route,
   } as any)
+const Actividad11BloqueosInnecesariosRoute =
+  Actividad11BloqueosInnecesariosRouteImport.update({
+    id: '/bloqueos-innecesarios',
+    path: '/bloqueos-innecesarios',
+    getParentRoute: () => Actividad11Route,
+  } as any)
+const Actividad11AbaRoute = Actividad11AbaRouteImport.update({
+  id: '/aba',
+  path: '/aba',
+  getParentRoute: () => Actividad11Route,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -72,9 +150,21 @@ export interface FileRoutesByFullPath {
   '/actividad12': typeof Actividad12Route
   '/actividad13': typeof Actividad13Route
   '/actividad14': typeof Actividad14Route
+  '/actividad11/aba': typeof Actividad11AbaRoute
+  '/actividad11/bloqueos-innecesarios': typeof Actividad11BloqueosInnecesariosRoute
   '/actividad11/condicion-carrera': typeof Actividad11CondicionCarreraRoute
+  '/actividad11/contencion-recursos': typeof Actividad11ContencionRecursosRoute
+  '/actividad11/convoying': typeof Actividad11ConvoyingRoute
   '/actividad11/deadlock': typeof Actividad11DeadlockRoute
+  '/actividad11/eventos': typeof Actividad11EventosRoute
+  '/actividad11/false-sharing': typeof Actividad11FalseSharingRoute
+  '/actividad11/lectura-escritura': typeof Actividad11LecturaEscrituraRoute
+  '/actividad11/livelock': typeof Actividad11LivelockRoute
+  '/actividad11/lost-wakeup': typeof Actividad11LostWakeupRoute
+  '/actividad11/memory-consistency': typeof Actividad11MemoryConsistencyRoute
+  '/actividad11/priority-inversion': typeof Actividad11PriorityInversionRoute
   '/actividad11/starvation': typeof Actividad11StarvationRoute
+  '/actividad11/thundering-herd': typeof Actividad11ThunderingHerdRoute
   '/actividad11/': typeof Actividad11IndexRoute
 }
 export interface FileRoutesByTo {
@@ -82,9 +172,21 @@ export interface FileRoutesByTo {
   '/actividad12': typeof Actividad12Route
   '/actividad13': typeof Actividad13Route
   '/actividad14': typeof Actividad14Route
+  '/actividad11/aba': typeof Actividad11AbaRoute
+  '/actividad11/bloqueos-innecesarios': typeof Actividad11BloqueosInnecesariosRoute
   '/actividad11/condicion-carrera': typeof Actividad11CondicionCarreraRoute
+  '/actividad11/contencion-recursos': typeof Actividad11ContencionRecursosRoute
+  '/actividad11/convoying': typeof Actividad11ConvoyingRoute
   '/actividad11/deadlock': typeof Actividad11DeadlockRoute
+  '/actividad11/eventos': typeof Actividad11EventosRoute
+  '/actividad11/false-sharing': typeof Actividad11FalseSharingRoute
+  '/actividad11/lectura-escritura': typeof Actividad11LecturaEscrituraRoute
+  '/actividad11/livelock': typeof Actividad11LivelockRoute
+  '/actividad11/lost-wakeup': typeof Actividad11LostWakeupRoute
+  '/actividad11/memory-consistency': typeof Actividad11MemoryConsistencyRoute
+  '/actividad11/priority-inversion': typeof Actividad11PriorityInversionRoute
   '/actividad11/starvation': typeof Actividad11StarvationRoute
+  '/actividad11/thundering-herd': typeof Actividad11ThunderingHerdRoute
   '/actividad11': typeof Actividad11IndexRoute
 }
 export interface FileRoutesById {
@@ -94,9 +196,21 @@ export interface FileRoutesById {
   '/actividad12': typeof Actividad12Route
   '/actividad13': typeof Actividad13Route
   '/actividad14': typeof Actividad14Route
+  '/actividad11/aba': typeof Actividad11AbaRoute
+  '/actividad11/bloqueos-innecesarios': typeof Actividad11BloqueosInnecesariosRoute
   '/actividad11/condicion-carrera': typeof Actividad11CondicionCarreraRoute
+  '/actividad11/contencion-recursos': typeof Actividad11ContencionRecursosRoute
+  '/actividad11/convoying': typeof Actividad11ConvoyingRoute
   '/actividad11/deadlock': typeof Actividad11DeadlockRoute
+  '/actividad11/eventos': typeof Actividad11EventosRoute
+  '/actividad11/false-sharing': typeof Actividad11FalseSharingRoute
+  '/actividad11/lectura-escritura': typeof Actividad11LecturaEscrituraRoute
+  '/actividad11/livelock': typeof Actividad11LivelockRoute
+  '/actividad11/lost-wakeup': typeof Actividad11LostWakeupRoute
+  '/actividad11/memory-consistency': typeof Actividad11MemoryConsistencyRoute
+  '/actividad11/priority-inversion': typeof Actividad11PriorityInversionRoute
   '/actividad11/starvation': typeof Actividad11StarvationRoute
+  '/actividad11/thundering-herd': typeof Actividad11ThunderingHerdRoute
   '/actividad11/': typeof Actividad11IndexRoute
 }
 export interface FileRouteTypes {
@@ -107,9 +221,21 @@ export interface FileRouteTypes {
     | '/actividad12'
     | '/actividad13'
     | '/actividad14'
+    | '/actividad11/aba'
+    | '/actividad11/bloqueos-innecesarios'
     | '/actividad11/condicion-carrera'
+    | '/actividad11/contencion-recursos'
+    | '/actividad11/convoying'
     | '/actividad11/deadlock'
+    | '/actividad11/eventos'
+    | '/actividad11/false-sharing'
+    | '/actividad11/lectura-escritura'
+    | '/actividad11/livelock'
+    | '/actividad11/lost-wakeup'
+    | '/actividad11/memory-consistency'
+    | '/actividad11/priority-inversion'
     | '/actividad11/starvation'
+    | '/actividad11/thundering-herd'
     | '/actividad11/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -117,9 +243,21 @@ export interface FileRouteTypes {
     | '/actividad12'
     | '/actividad13'
     | '/actividad14'
+    | '/actividad11/aba'
+    | '/actividad11/bloqueos-innecesarios'
     | '/actividad11/condicion-carrera'
+    | '/actividad11/contencion-recursos'
+    | '/actividad11/convoying'
     | '/actividad11/deadlock'
+    | '/actividad11/eventos'
+    | '/actividad11/false-sharing'
+    | '/actividad11/lectura-escritura'
+    | '/actividad11/livelock'
+    | '/actividad11/lost-wakeup'
+    | '/actividad11/memory-consistency'
+    | '/actividad11/priority-inversion'
     | '/actividad11/starvation'
+    | '/actividad11/thundering-herd'
     | '/actividad11'
   id:
     | '__root__'
@@ -128,9 +266,21 @@ export interface FileRouteTypes {
     | '/actividad12'
     | '/actividad13'
     | '/actividad14'
+    | '/actividad11/aba'
+    | '/actividad11/bloqueos-innecesarios'
     | '/actividad11/condicion-carrera'
+    | '/actividad11/contencion-recursos'
+    | '/actividad11/convoying'
     | '/actividad11/deadlock'
+    | '/actividad11/eventos'
+    | '/actividad11/false-sharing'
+    | '/actividad11/lectura-escritura'
+    | '/actividad11/livelock'
+    | '/actividad11/lost-wakeup'
+    | '/actividad11/memory-consistency'
+    | '/actividad11/priority-inversion'
     | '/actividad11/starvation'
+    | '/actividad11/thundering-herd'
     | '/actividad11/'
   fileRoutesById: FileRoutesById
 }
@@ -186,11 +336,67 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof Actividad11IndexRouteImport
       parentRoute: typeof Actividad11Route
     }
+    '/actividad11/thundering-herd': {
+      id: '/actividad11/thundering-herd'
+      path: '/thundering-herd'
+      fullPath: '/actividad11/thundering-herd'
+      preLoaderRoute: typeof Actividad11ThunderingHerdRouteImport
+      parentRoute: typeof Actividad11Route
+    }
     '/actividad11/starvation': {
       id: '/actividad11/starvation'
       path: '/starvation'
       fullPath: '/actividad11/starvation'
       preLoaderRoute: typeof Actividad11StarvationRouteImport
+      parentRoute: typeof Actividad11Route
+    }
+    '/actividad11/priority-inversion': {
+      id: '/actividad11/priority-inversion'
+      path: '/priority-inversion'
+      fullPath: '/actividad11/priority-inversion'
+      preLoaderRoute: typeof Actividad11PriorityInversionRouteImport
+      parentRoute: typeof Actividad11Route
+    }
+    '/actividad11/memory-consistency': {
+      id: '/actividad11/memory-consistency'
+      path: '/memory-consistency'
+      fullPath: '/actividad11/memory-consistency'
+      preLoaderRoute: typeof Actividad11MemoryConsistencyRouteImport
+      parentRoute: typeof Actividad11Route
+    }
+    '/actividad11/lost-wakeup': {
+      id: '/actividad11/lost-wakeup'
+      path: '/lost-wakeup'
+      fullPath: '/actividad11/lost-wakeup'
+      preLoaderRoute: typeof Actividad11LostWakeupRouteImport
+      parentRoute: typeof Actividad11Route
+    }
+    '/actividad11/livelock': {
+      id: '/actividad11/livelock'
+      path: '/livelock'
+      fullPath: '/actividad11/livelock'
+      preLoaderRoute: typeof Actividad11LivelockRouteImport
+      parentRoute: typeof Actividad11Route
+    }
+    '/actividad11/lectura-escritura': {
+      id: '/actividad11/lectura-escritura'
+      path: '/lectura-escritura'
+      fullPath: '/actividad11/lectura-escritura'
+      preLoaderRoute: typeof Actividad11LecturaEscrituraRouteImport
+      parentRoute: typeof Actividad11Route
+    }
+    '/actividad11/false-sharing': {
+      id: '/actividad11/false-sharing'
+      path: '/false-sharing'
+      fullPath: '/actividad11/false-sharing'
+      preLoaderRoute: typeof Actividad11FalseSharingRouteImport
+      parentRoute: typeof Actividad11Route
+    }
+    '/actividad11/eventos': {
+      id: '/actividad11/eventos'
+      path: '/eventos'
+      fullPath: '/actividad11/eventos'
+      preLoaderRoute: typeof Actividad11EventosRouteImport
       parentRoute: typeof Actividad11Route
     }
     '/actividad11/deadlock': {
@@ -200,6 +406,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof Actividad11DeadlockRouteImport
       parentRoute: typeof Actividad11Route
     }
+    '/actividad11/convoying': {
+      id: '/actividad11/convoying'
+      path: '/convoying'
+      fullPath: '/actividad11/convoying'
+      preLoaderRoute: typeof Actividad11ConvoyingRouteImport
+      parentRoute: typeof Actividad11Route
+    }
+    '/actividad11/contencion-recursos': {
+      id: '/actividad11/contencion-recursos'
+      path: '/contencion-recursos'
+      fullPath: '/actividad11/contencion-recursos'
+      preLoaderRoute: typeof Actividad11ContencionRecursosRouteImport
+      parentRoute: typeof Actividad11Route
+    }
     '/actividad11/condicion-carrera': {
       id: '/actividad11/condicion-carrera'
       path: '/condicion-carrera'
@@ -207,20 +427,58 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof Actividad11CondicionCarreraRouteImport
       parentRoute: typeof Actividad11Route
     }
+    '/actividad11/bloqueos-innecesarios': {
+      id: '/actividad11/bloqueos-innecesarios'
+      path: '/bloqueos-innecesarios'
+      fullPath: '/actividad11/bloqueos-innecesarios'
+      preLoaderRoute: typeof Actividad11BloqueosInnecesariosRouteImport
+      parentRoute: typeof Actividad11Route
+    }
+    '/actividad11/aba': {
+      id: '/actividad11/aba'
+      path: '/aba'
+      fullPath: '/actividad11/aba'
+      preLoaderRoute: typeof Actividad11AbaRouteImport
+      parentRoute: typeof Actividad11Route
+    }
   }
 }
 
 interface Actividad11RouteChildren {
+  Actividad11AbaRoute: typeof Actividad11AbaRoute
+  Actividad11BloqueosInnecesariosRoute: typeof Actividad11BloqueosInnecesariosRoute
   Actividad11CondicionCarreraRoute: typeof Actividad11CondicionCarreraRoute
+  Actividad11ContencionRecursosRoute: typeof Actividad11ContencionRecursosRoute
+  Actividad11ConvoyingRoute: typeof Actividad11ConvoyingRoute
   Actividad11DeadlockRoute: typeof Actividad11DeadlockRoute
+  Actividad11EventosRoute: typeof Actividad11EventosRoute
+  Actividad11FalseSharingRoute: typeof Actividad11FalseSharingRoute
+  Actividad11LecturaEscrituraRoute: typeof Actividad11LecturaEscrituraRoute
+  Actividad11LivelockRoute: typeof Actividad11LivelockRoute
+  Actividad11LostWakeupRoute: typeof Actividad11LostWakeupRoute
+  Actividad11MemoryConsistencyRoute: typeof Actividad11MemoryConsistencyRoute
+  Actividad11PriorityInversionRoute: typeof Actividad11PriorityInversionRoute
   Actividad11StarvationRoute: typeof Actividad11StarvationRoute
+  Actividad11ThunderingHerdRoute: typeof Actividad11ThunderingHerdRoute
   Actividad11IndexRoute: typeof Actividad11IndexRoute
 }
 
 const Actividad11RouteChildren: Actividad11RouteChildren = {
+  Actividad11AbaRoute: Actividad11AbaRoute,
+  Actividad11BloqueosInnecesariosRoute: Actividad11BloqueosInnecesariosRoute,
   Actividad11CondicionCarreraRoute: Actividad11CondicionCarreraRoute,
+  Actividad11ContencionRecursosRoute: Actividad11ContencionRecursosRoute,
+  Actividad11ConvoyingRoute: Actividad11ConvoyingRoute,
   Actividad11DeadlockRoute: Actividad11DeadlockRoute,
+  Actividad11EventosRoute: Actividad11EventosRoute,
+  Actividad11FalseSharingRoute: Actividad11FalseSharingRoute,
+  Actividad11LecturaEscrituraRoute: Actividad11LecturaEscrituraRoute,
+  Actividad11LivelockRoute: Actividad11LivelockRoute,
+  Actividad11LostWakeupRoute: Actividad11LostWakeupRoute,
+  Actividad11MemoryConsistencyRoute: Actividad11MemoryConsistencyRoute,
+  Actividad11PriorityInversionRoute: Actividad11PriorityInversionRoute,
   Actividad11StarvationRoute: Actividad11StarvationRoute,
+  Actividad11ThunderingHerdRoute: Actividad11ThunderingHerdRoute,
   Actividad11IndexRoute: Actividad11IndexRoute,
 }
 

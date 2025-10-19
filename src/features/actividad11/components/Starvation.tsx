@@ -33,6 +33,40 @@ export default function Starvation() {
   const [agingLogs, setAgingLogs] = useState<string[]>(['Sistema iniciado. Esperando...']);
   const agingLogRef = useRef<HTMLDivElement>(null);
 
+  // Estados para Fair Scheduling Demo
+  const [fairProcesses, setFairProcesses] = useState<Process[]>([
+    { id: 1, priority: 0, effectivePriority: 0, arrivalTime: 0, tickets: 10, level: 0, bypassCount: 0, virtualTime: 0, weight: 1024, executionTime: 0, waitTime: 0, color: 'bg-cyan-500', status: 'waiting' },
+    { id: 2, priority: 0, effectivePriority: 0, arrivalTime: 0, tickets: 5, level: 0, bypassCount: 0, virtualTime: 0, weight: 512, executionTime: 0, waitTime: 0, color: 'bg-pink-500', status: 'waiting' },
+  ]);
+  const [fairRunning, setFairRunning] = useState(false);
+  const [fairTime, setFairTime] = useState(0);
+  const [fairSpeed, setFairSpeed] = useState([500]);
+  const [fairLogs, setFairLogs] = useState<string[]>(['Sistema Fair Scheduler iniciado.']);
+  const fairLogRef = useRef<HTMLDivElement>(null);
+
+  // Estados para Bounded Waiting Demo
+  const [boundedProcesses, setBoundedProcesses] = useState<Process[]>([
+    { id: 1, priority: 10, effectivePriority: 10, arrivalTime: 0, tickets: 10, level: 0, bypassCount: 0, virtualTime: 0, weight: 1024, executionTime: 0, waitTime: 0, color: 'bg-red-500', status: 'waiting' },
+    { id: 2, priority: 50, effectivePriority: 50, arrivalTime: 0, tickets: 5, level: 0, bypassCount: 0, virtualTime: 0, weight: 1024, executionTime: 0, waitTime: 0, color: 'bg-yellow-500', status: 'waiting' },
+    { id: 3, priority: 80, effectivePriority: 80, arrivalTime: 0, tickets: 2, level: 0, bypassCount: 0, virtualTime: 0, weight: 1024, executionTime: 0, waitTime: 0, color: 'bg-indigo-500', status: 'waiting' },
+  ]);
+  const [boundedRunning, setBoundedRunning] = useState(false);
+  const [boundedTime, setBoundedTime] = useState(0);
+  const [boundedSpeed, setBoundedSpeed] = useState([500]);
+  const [boundedLogs, setBoundedLogs] = useState<string[]>(['Sistema Bounded Waiting iniciado (MAX_BYPASS=3).']);
+  const boundedLogRef = useRef<HTMLDivElement>(null);
+
+  // Estados para Multilevel FIFO Demo
+  const [fifoProcesses, setFifoProcesses] = useState<Process[]>([
+    { id: 1, priority: 0, effectivePriority: 0, arrivalTime: 0, tickets: 10, level: 0, bypassCount: 0, virtualTime: 0, weight: 1024, executionTime: 0, waitTime: 0, color: 'bg-orange-500', status: 'waiting' },
+    { id: 2, priority: 0, effectivePriority: 0, arrivalTime: 0, tickets: 5, level: 0, bypassCount: 0, virtualTime: 0, weight: 1024, executionTime: 0, waitTime: 0, color: 'bg-teal-500', status: 'waiting' },
+  ]);
+  const [fifoRunning, setFifoRunning] = useState(false);
+  const [fifoTime, setFifoTime] = useState(0);
+  const [fifoSpeed, setFifoSpeed] = useState([500]);
+  const [fifoLogs, setFifoLogs] = useState<string[]>(['Sistema Multilevel FIFO iniciado (4 niveles).']);
+  const fifoLogRef = useRef<HTMLDivElement>(null);
+
   // Estados para Lottery Scheduling Demo
   const [lotteryProcesses, setLotteryProcesses] = useState<Process[]>([
     { id: 1, priority: 0, effectivePriority: 0, arrivalTime: 0, tickets: 10, level: 0, bypassCount: 0, virtualTime: 0, weight: 1024, executionTime: 0, waitTime: 0, color: 'bg-lime-500', status: 'waiting' },
@@ -49,6 +83,18 @@ export default function Starvation() {
   useEffect(() => {
     if (agingLogRef.current) agingLogRef.current.scrollTop = agingLogRef.current.scrollHeight;
   }, [agingLogs]);
+
+  useEffect(() => {
+    if (fairLogRef.current) fairLogRef.current.scrollTop = fairLogRef.current.scrollHeight;
+  }, [fairLogs]);
+
+  useEffect(() => {
+    if (boundedLogRef.current) boundedLogRef.current.scrollTop = boundedLogRef.current.scrollHeight;
+  }, [boundedLogs]);
+
+  useEffect(() => {
+    if (fifoLogRef.current) fifoLogRef.current.scrollTop = fifoLogRef.current.scrollHeight;
+  }, [fifoLogs]);
 
   useEffect(() => {
     if (lotteryLogRef.current) lotteryLogRef.current.scrollTop = lotteryLogRef.current.scrollHeight;
@@ -159,6 +205,167 @@ export default function Starvation() {
 
     return () => clearInterval(interval);
   }, [lotteryRunning, lotterySpeed]);
+
+  // Simulación Fair Scheduling (CFS)
+  useEffect(() => {
+    if (!fairRunning) return;
+
+    const interval = setInterval(() => {
+      setFairTime(prev => prev + fairSpeed[0]);
+
+      setFairProcesses(prev => {
+        const waiting = prev.filter(p => p.status !== 'completed');
+        if (waiting.length === 0) return prev;
+
+        // Seleccionar proceso con menor virtualTime (Red-Black Tree mínimo)
+        const selected = waiting.reduce((min, p) => p.virtualTime < min.virtualTime ? p : min);
+
+        // Calcular CPU share
+        const totalWeight = waiting.reduce((sum, p) => sum + p.weight, 0);
+        const cpuShare = selected.weight / totalWeight;
+        const quantum = Math.max(fairSpeed[0], cpuShare * 100); // Quantum proporcional
+
+        setFairLogs(prevLogs => [...prevLogs,
+          `⏰ P${selected.id} ejecuta (vTime: ${selected.virtualTime.toFixed(1)}, CPU: ${(cpuShare*100).toFixed(1)}%, quantum: ${quantum.toFixed(0)}ms)`
+        ]);
+
+        return prev.map(p => {
+          const isSelected = p.id === selected.id;
+          const vTimeIncrement = isSelected ? (fairSpeed[0] * 1024 / p.weight) : 0; // PESO_NORMAL=1024
+
+          return {
+            ...p,
+            status: isSelected ? 'executing' : p.status,
+            virtualTime: p.virtualTime + vTimeIncrement,
+            executionTime: isSelected ? p.executionTime + fairSpeed[0] : p.executionTime,
+            waitTime: isSelected ? 0 : p.waitTime + fairSpeed[0],
+          };
+        });
+      });
+
+      setTimeout(() => {
+        setFairProcesses(prev => prev.map(p => ({ ...p, status: p.status === 'completed' ? 'completed' : 'waiting' })));
+      }, fairSpeed[0] / 2);
+    }, fairSpeed[0]);
+
+    return () => clearInterval(interval);
+  }, [fairRunning, fairSpeed]);
+
+  // Simulación Bounded Waiting
+  useEffect(() => {
+    if (!boundedRunning) return;
+
+    const interval = setInterval(() => {
+      setBoundedTime(prev => prev + boundedSpeed[0]);
+
+      setBoundedProcesses(prev => {
+        const waiting = prev.filter(p => p.status !== 'completed');
+        if (waiting.length === 0) return prev;
+
+        // Verificar si hay algún proceso con bypassCount >= 3 (FORZAR)
+        const starved = waiting.find(p => p.bypassCount >= 3);
+        const selected = starved || waiting.reduce((max, p) => p.priority > max.priority ? p : max);
+
+        if (starved) {
+          setBoundedLogs(prevLogs => [...prevLogs,
+            `⚠️ P${selected.id} FORZADO a ejecutar (bypass: ${selected.bypassCount}/3, prioridad: ${selected.priority})`
+          ]);
+        } else {
+          setBoundedLogs(prevLogs => [...prevLogs,
+            `▶️ P${selected.id} ejecuta (prioridad: ${selected.priority})`
+          ]);
+        }
+
+        return prev.map(p => {
+          const isSelected = p.id === selected.id;
+          
+          return {
+            ...p,
+            status: isSelected ? 'executing' : p.status,
+            bypassCount: isSelected ? 0 : p.bypassCount + 1, // Resetear si ejecuta, incrementar si no
+            executionTime: isSelected ? p.executionTime + boundedSpeed[0] : p.executionTime,
+            waitTime: isSelected ? 0 : p.waitTime + boundedSpeed[0],
+          };
+        });
+      });
+
+      setTimeout(() => {
+        setBoundedProcesses(prev => prev.map(p => ({ ...p, status: p.status === 'completed' ? 'completed' : 'waiting' })));
+      }, boundedSpeed[0] / 2);
+    }, boundedSpeed[0]);
+
+    return () => clearInterval(interval);
+  }, [boundedRunning, boundedSpeed]);
+
+  // Simulación Multilevel FIFO
+  useEffect(() => {
+    if (!fifoRunning) return;
+
+    const interval = setInterval(() => {
+      setFifoTime(prev => prev + fifoSpeed[0]);
+
+      setFifoProcesses(prev => {
+        const waiting = prev.filter(p => p.status !== 'completed');
+        if (waiting.length === 0) return prev;
+
+        // Seleccionar del nivel más alto con procesos
+        let selected = null;
+        for (let level = 0; level <= 3; level++) {
+          const procsInLevel = waiting.filter(p => p.level === level);
+          if (procsInLevel.length > 0) {
+            selected = procsInLevel[0]; // FIFO dentro del nivel
+            break;
+          }
+        }
+
+        if (!selected) return prev;
+
+        const quantum = 10 * Math.pow(2, selected.level);
+
+        setFifoLogs(prevLogs => [...prevLogs,
+          `📋 P${selected.id} ejecuta en nivel ${selected.level} (quantum: ${quantum}ms)`
+        ]);
+
+        return prev.map(p => {
+          const isSelected = p.id === selected.id;
+          const newWaitTime = isSelected ? 0 : p.waitTime + fifoSpeed[0];
+          const newExecutionTime = isSelected ? p.executionTime + fifoSpeed[0] : p.executionTime;
+
+          // Promoción: si espera > 50ms y no está en nivel 0
+          let newLevel = p.level;
+          if (!isSelected && newWaitTime > 50 && p.level > 0) {
+            newLevel = p.level - 1;
+            setFifoLogs(prevLogs => [...prevLogs,
+              `⬆️ P${p.id} PROMOCIONADO nivel ${p.level} → ${newLevel} (espera: ${newWaitTime}ms)`
+            ]);
+          }
+
+          // Degradación: si usa quantum completo y no está en nivel 3
+          if (isSelected && p.level < 3) {
+            newLevel = p.level + 1;
+            setFifoLogs(prevLogs => [...prevLogs,
+              `⬇️ P${p.id} DEGRADADO nivel ${p.level} → ${newLevel}`
+            ]);
+          }
+
+          return {
+            ...p,
+            status: isSelected ? 'executing' : p.status,
+            level: newLevel,
+            executionTime: newExecutionTime,
+            waitTime: newWaitTime,
+          };
+        });
+      });
+
+      setTimeout(() => {
+        setFifoProcesses(prev => prev.map(p => ({ ...p, status: p.status === 'completed' ? 'completed' : 'waiting' })));
+      }, fifoSpeed[0] / 2);
+    }, fifoSpeed[0]);
+
+    return () => clearInterval(interval);
+  }, [fifoRunning, fifoSpeed]);
+
   return (
     <div className="min-h-screen bg-gray-900 text-gray-100">
       <div className="bg-gray-800 border-b border-gray-700 py-8">
@@ -207,7 +414,7 @@ export default function Starvation() {
             </p>
           </div>
         </div>
-        <Accordion type="multiple" defaultValue={["soluciones"]} className="space-y-4">
+        <Accordion type="multiple" defaultValue={["soluciones", "demostracion"]} className="space-y-4">
           <AccordionItem value="soluciones" className="bg-gray-800 rounded-lg border border-gray-700 overflow-hidden">
             <AccordionTrigger className="text-xl font-bold text-white hover:no-underline px-6">
               <div className="flex items-center gap-2">
@@ -458,11 +665,11 @@ FIN FUNCIÓN`}</code></pre>
             <AccordionContent>
               <Tabs defaultValue="demo-aging" className="w-full">
                 <TabsList className="w-full justify-start flex-wrap h-auto gap-2 bg-gray-900 p-2">
-                  <TabsTrigger value="demo-aging">⏰ Demo Aging</TabsTrigger>
-                  <TabsTrigger value="demo-fair">⚖️ Demo Fair</TabsTrigger>
-                  <TabsTrigger value="demo-bounded">🔢 Demo Bounded</TabsTrigger>
-                  <TabsTrigger value="demo-fifo">📋 Demo FIFO</TabsTrigger>
-                  <TabsTrigger value="demo-lottery">🎰 Demo Lottery</TabsTrigger>
+                  <TabsTrigger value="demo-aging">⏰ Aging</TabsTrigger>
+                  <TabsTrigger value="demo-fair">⚖️ Fair</TabsTrigger>
+                  <TabsTrigger value="demo-bounded">🔢 Bounded</TabsTrigger>
+                  <TabsTrigger value="demo-fifo">📋 FIFO</TabsTrigger>
+                  <TabsTrigger value="demo-lottery">🎰 Lottery</TabsTrigger>
                 </TabsList>
 
                 {/* Demo 1: Aging */}
@@ -569,25 +776,418 @@ FIN FUNCIÓN`}</code></pre>
                   </div>
                 </TabsContent>
 
-                {/* Demo 2: Fair Scheduling - Placeholder temporal */}
+                {/* Demo 2: Fair Scheduling */}
                 <TabsContent value="demo-fair" className="mt-6">
-                  <div className="p-6 text-center text-gray-400">
-                    <div className="text-6xl mb-4">🚧</div>
-                    <p className="text-lg">Demo Fair Scheduling en desarrollo...</p>
+                  <div className="space-y-4">
+                    <h3 className="text-xl font-bold text-white">Demostración: Fair Scheduling (CFS) ⚖️</h3>
+                    
+                    {/* Controles */}
+                    <div className="bg-gray-900 rounded-lg p-4 border border-gray-700">
+                      <div className="flex flex-wrap items-center gap-4">
+                        <button
+                          onClick={() => setFairRunning(!fairRunning)}
+                          className="px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded-lg font-medium flex items-center gap-2"
+                        >
+                          {fairRunning ? <Pause className="size-4" /> : <Play className="size-4" />}
+                          {fairRunning ? 'Pausar' : 'Iniciar'}
+                        </button>
+                        <button
+                          onClick={() => {
+                            setFairRunning(false);
+                            setFairTime(0);
+                            setFairProcesses([
+                              { id: 1, priority: 0, effectivePriority: 0, arrivalTime: 0, tickets: 10, level: 0, bypassCount: 0, virtualTime: 0, weight: 1024, executionTime: 0, waitTime: 0, color: 'bg-cyan-500', status: 'waiting' },
+                              { id: 2, priority: 0, effectivePriority: 0, arrivalTime: 0, tickets: 5, level: 0, bypassCount: 0, virtualTime: 0, weight: 512, executionTime: 0, waitTime: 0, color: 'bg-pink-500', status: 'waiting' },
+                            ]);
+                            setFairLogs(['Sistema Fair Scheduler reiniciado.']);
+                          }}
+                          className="px-4 py-2 bg-gray-700 hover:bg-gray-600 rounded-lg font-medium flex items-center gap-2"
+                        >
+                          <RotateCcw className="size-4" />
+                          Reiniciar
+                        </button>
+                        <button
+                          onClick={() => {
+                            const weights = [2048, 1024, 512, 256];
+                            const newProc: Process = {
+                              id: fairProcesses.length + 1,
+                              priority: 0,
+                              effectivePriority: 0,
+                              arrivalTime: fairTime,
+                              tickets: 0,
+                              level: 0,
+                              bypassCount: 0,
+                              virtualTime: 0,
+                              weight: weights[fairProcesses.length % weights.length],
+                              executionTime: 0,
+                              waitTime: 0,
+                              color: `bg-${['violet', 'emerald', 'fuchsia', 'amber'][fairProcesses.length % 4]}-500`,
+                              status: 'waiting' as const,
+                            };
+                            setFairProcesses([...fairProcesses, newProc]);
+                            setFairLogs(prev => [...prev, `P${newProc.id} añadido con peso ${newProc.weight}`]);
+                          }}
+                          className="px-4 py-2 bg-green-600 hover:bg-green-700 rounded-lg font-medium flex items-center gap-2"
+                        >
+                          <Plus className="size-4" />
+                          Añadir Proceso
+                        </button>
+                        <div className="flex items-center gap-3">
+                          <span className="text-sm text-gray-400">Velocidad:</span>
+                          <Slider
+                            value={fairSpeed}
+                            onValueChange={setFairSpeed}
+                            min={100}
+                            max={1000}
+                            step={100}
+                            className="w-32"
+                          />
+                          <span className="text-sm text-gray-400">{fairSpeed[0]}ms</span>
+                        </div>
+                        <div className="ml-auto text-gray-400">Tiempo: {fairTime}ms</div>
+                      </div>
+                    </div>
+
+                    {/* Visualización de Procesos */}
+                    <div className="bg-gray-900 rounded-lg p-6 border border-gray-700">
+                      <h4 className="font-bold text-white mb-4">Tiempo Virtual (Red-Black Tree) 🌳</h4>
+                      <div className="space-y-3">
+                        {fairProcesses
+                          .slice()
+                          .sort((a, b) => a.virtualTime - b.virtualTime)
+                          .map((proc, index) => {
+                            const totalWeight = fairProcesses.reduce((sum, p) => sum + p.weight, 0);
+                            const cpuShare = (proc.weight / totalWeight * 100).toFixed(1);
+                            
+                            return (
+                              <div key={proc.id} className="bg-gray-800 rounded p-4">
+                                <div className="flex items-center justify-between mb-2">
+                                  <div className="flex items-center gap-3">
+                                    <div className={`w-4 h-4 rounded ${proc.color}`}></div>
+                                    {index === 0 && <span className="text-xs bg-green-600 px-2 py-1 rounded">⬅️ MÍNIMO</span>}
+                                    <span className="font-bold">Proceso {proc.id}</span>
+                                    {proc.status === 'executing' && <span className="text-xs bg-blue-600 px-2 py-1 rounded">EJECUTANDO</span>}
+                                  </div>
+                                  <div className="flex items-center gap-2">
+                                    <button
+                                      onClick={() => {
+                                        setFairProcesses(fairProcesses.map(p =>
+                                          p.id === proc.id ? { ...p, weight: Math.max(256, p.weight / 2) } : p
+                                        ));
+                                      }}
+                                      className="p-1 bg-red-600 hover:bg-red-700 rounded text-xs"
+                                    >
+                                      <Minus className="size-3" />
+                                    </button>
+                                    <span className="text-xs text-gray-400">Peso: {proc.weight}</span>
+                                    <button
+                                      onClick={() => {
+                                        setFairProcesses(fairProcesses.map(p =>
+                                          p.id === proc.id ? { ...p, weight: Math.min(4096, p.weight * 2) } : p
+                                        ));
+                                      }}
+                                      className="p-1 bg-green-600 hover:bg-green-700 rounded text-xs"
+                                    >
+                                      <Plus className="size-3" />
+                                    </button>
+                                  </div>
+                                </div>
+                                <div className="grid grid-cols-3 gap-4 text-sm mb-2">
+                                  <div>
+                                    <span className="text-gray-400">Tiempo Virtual:</span>
+                                    <span className="ml-2 text-cyan-400 font-mono font-bold">{proc.virtualTime.toFixed(1)}</span>
+                                  </div>
+                                  <div>
+                                    <span className="text-gray-400">CPU Share:</span>
+                                    <span className="ml-2 text-green-400 font-mono">{cpuShare}%</span>
+                                  </div>
+                                  <div>
+                                    <span className="text-gray-400">Ejecutado:</span>
+                                    <span className="ml-2 text-white font-mono">{proc.executionTime}ms</span>
+                                  </div>
+                                </div>
+                                {/* Barra de tiempo virtual */}
+                                <div className="w-full bg-gray-700 rounded-full h-2">
+                                  <div 
+                                    className={`h-2 rounded-full ${proc.color}`}
+                                    style={{ width: `${Math.min(100, (proc.virtualTime / 10) * 100)}%` }}
+                                  ></div>
+                                </div>
+                              </div>
+                            );
+                          })}
+                      </div>
+                    </div>
+
+                    {/* Logs */}
+                    <div className="bg-gray-900 rounded-lg p-4 border border-gray-700">
+                      <h4 className="font-bold text-white mb-2">Eventos del Scheduler</h4>
+                      <div 
+                        ref={fairLogRef}
+                        className="bg-black rounded p-3 font-mono text-xs text-green-400 h-48 overflow-y-auto"
+                      >
+                        {fairLogs.map((log, idx) => (
+                          <div key={idx}>{log}</div>
+                        ))}
+                      </div>
+                    </div>
                   </div>
                 </TabsContent>
 
+                {/* Demo 3: Bounded Waiting */}
                 <TabsContent value="demo-bounded" className="mt-6">
-                  <div className="p-6 text-center text-gray-400">
-                    <div className="text-6xl mb-4">🚧</div>
-                    <p className="text-lg">Demo Bounded Waiting en desarrollo...</p>
+                  <div className="space-y-4">
+                    <h3 className="text-xl font-bold text-white">Demostración: Bounded Waiting 🔢</h3>
+                    
+                    {/* Controles */}
+                    <div className="bg-gray-900 rounded-lg p-4 border border-gray-700">
+                      <div className="flex flex-wrap items-center gap-4">
+                        <button
+                          onClick={() => setBoundedRunning(!boundedRunning)}
+                          className="px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded-lg font-medium flex items-center gap-2"
+                        >
+                          {boundedRunning ? <Pause className="size-4" /> : <Play className="size-4" />}
+                          {boundedRunning ? 'Pausar' : 'Iniciar'}
+                        </button>
+                        <button
+                          onClick={() => {
+                            setBoundedRunning(false);
+                            setBoundedTime(0);
+                            setBoundedProcesses([
+                              { id: 1, priority: 10, effectivePriority: 10, arrivalTime: 0, tickets: 10, level: 0, bypassCount: 0, virtualTime: 0, weight: 1024, executionTime: 0, waitTime: 0, color: 'bg-red-500', status: 'waiting' },
+                              { id: 2, priority: 50, effectivePriority: 50, arrivalTime: 0, tickets: 5, level: 0, bypassCount: 0, virtualTime: 0, weight: 1024, executionTime: 0, waitTime: 0, color: 'bg-yellow-500', status: 'waiting' },
+                              { id: 3, priority: 80, effectivePriority: 80, arrivalTime: 0, tickets: 2, level: 0, bypassCount: 0, virtualTime: 0, weight: 1024, executionTime: 0, waitTime: 0, color: 'bg-indigo-500', status: 'waiting' },
+                            ]);
+                            setBoundedLogs(['Sistema Bounded Waiting reiniciado (MAX_BYPASS=3).']);
+                          }}
+                          className="px-4 py-2 bg-gray-700 hover:bg-gray-600 rounded-lg font-medium flex items-center gap-2"
+                        >
+                          <RotateCcw className="size-4" />
+                          Reiniciar
+                        </button>
+                        <div className="flex items-center gap-3">
+                          <span className="text-sm text-gray-400">Velocidad:</span>
+                          <Slider
+                            value={boundedSpeed}
+                            onValueChange={setBoundedSpeed}
+                            min={100}
+                            max={1000}
+                            step={100}
+                            className="w-32"
+                          />
+                          <span className="text-sm text-gray-400">{boundedSpeed[0]}ms</span>
+                        </div>
+                        <div className="ml-auto text-gray-400">Ciclos: {Math.floor(boundedTime / (boundedSpeed[0] || 500))}</div>
+                      </div>
+                    </div>
+
+                    {/* Visualización de Procesos */}
+                    <div className="bg-gray-900 rounded-lg p-6 border border-gray-700">
+                      <h4 className="font-bold text-white mb-4">Bypass Counter (MAX = 3) �</h4>
+                      <div className="space-y-3">
+                        {boundedProcesses.map(proc => (
+                          <div key={proc.id} className="bg-gray-800 rounded p-4">
+                            <div className="flex items-center justify-between mb-2">
+                              <div className="flex items-center gap-3">
+                                <div className={`w-4 h-4 rounded ${proc.color}`}></div>
+                                <span className="font-bold">Proceso {proc.id}</span>
+                                {proc.status === 'executing' && <span className="text-xs bg-green-600 px-2 py-1 rounded">✅ EJECUTANDO</span>}
+                                {proc.bypassCount >= 3 && <span className="text-xs bg-red-600 px-2 py-1 rounded animate-pulse">⚠️ FORZAR</span>}
+                              </div>
+                            </div>
+                            <div className="grid grid-cols-3 gap-4 text-sm mb-3">
+                              <div>
+                                <span className="text-gray-400">Prioridad:</span>
+                                <span className="ml-2 text-white font-mono">{proc.priority}</span>
+                              </div>
+                              <div>
+                                <span className="text-gray-400">Bypass Count:</span>
+                                <span className={`ml-2 font-mono font-bold ${proc.bypassCount >= 3 ? 'text-red-400' : 'text-yellow-400'}`}>
+                                  {proc.bypassCount}/3
+                                </span>
+                              </div>
+                              <div>
+                                <span className="text-gray-400">Ejecutado:</span>
+                                <span className="ml-2 text-green-400 font-mono">{proc.executionTime}ms</span>
+                              </div>
+                            </div>
+                            {/* Barra de bypass visual */}
+                            <div className="flex gap-1">
+                              {[0, 1, 2].map(i => (
+                                <div 
+                                  key={i}
+                                  className={`flex-1 h-3 rounded ${
+                                    i < proc.bypassCount 
+                                      ? (proc.bypassCount >= 3 ? 'bg-red-500 animate-pulse' : 'bg-yellow-500')
+                                      : 'bg-gray-700'
+                                  }`}
+                                />
+                              ))}
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Logs */}
+                    <div className="bg-gray-900 rounded-lg p-4 border border-gray-700">
+                      <h4 className="font-bold text-white mb-2">Registro de Asignación de Recursos</h4>
+                      <div 
+                        ref={boundedLogRef}
+                        className="bg-black rounded p-3 font-mono text-xs text-green-400 h-48 overflow-y-auto"
+                      >
+                        {boundedLogs.map((log, idx) => (
+                          <div key={idx}>{log}</div>
+                        ))}
+                      </div>
+                    </div>
                   </div>
                 </TabsContent>
 
+                {/* Demo 4: Multilevel FIFO */}
                 <TabsContent value="demo-fifo" className="mt-6">
-                  <div className="p-6 text-center text-gray-400">
-                    <div className="text-6xl mb-4">🚧</div>
-                    <p className="text-lg">Demo FIFO en desarrollo...</p>
+                  <div className="space-y-4">
+                    <h3 className="text-xl font-bold text-white">Demostración: Multilevel FIFO con Prioridad 📋</h3>
+                    
+                    {/* Controles */}
+                    <div className="bg-gray-900 rounded-lg p-4 border border-gray-700">
+                      <div className="flex flex-wrap items-center gap-4">
+                        <button
+                          onClick={() => setFifoRunning(!fifoRunning)}
+                          className="px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded-lg font-medium flex items-center gap-2"
+                        >
+                          {fifoRunning ? <Pause className="size-4" /> : <Play className="size-4" />}
+                          {fifoRunning ? 'Pausar' : 'Iniciar'}
+                        </button>
+                        <button
+                          onClick={() => {
+                            setFifoRunning(false);
+                            setFifoTime(0);
+                            setFifoProcesses([
+                              { id: 1, priority: 0, effectivePriority: 0, arrivalTime: 0, tickets: 10, level: 0, bypassCount: 0, virtualTime: 0, weight: 1024, executionTime: 0, waitTime: 0, color: 'bg-orange-500', status: 'waiting' },
+                              { id: 2, priority: 0, effectivePriority: 0, arrivalTime: 0, tickets: 5, level: 0, bypassCount: 0, virtualTime: 0, weight: 1024, executionTime: 0, waitTime: 0, color: 'bg-teal-500', status: 'waiting' },
+                            ]);
+                            setFifoLogs(['Sistema Multilevel FIFO reiniciado (4 niveles).']);
+                          }}
+                          className="px-4 py-2 bg-gray-700 hover:bg-gray-600 rounded-lg font-medium flex items-center gap-2"
+                        >
+                          <RotateCcw className="size-4" />
+                          Reiniciar
+                        </button>
+                        <button
+                          onClick={() => {
+                            const newProc: Process = {
+                              id: fifoProcesses.length + 1,
+                              priority: 0,
+                              effectivePriority: 0,
+                              arrivalTime: fifoTime,
+                              tickets: 0,
+                              level: 0,
+                              bypassCount: 0,
+                              virtualTime: 0,
+                              weight: 1024,
+                              executionTime: 0,
+                              waitTime: 0,
+                              color: `bg-${['sky', 'rose', 'lime', 'purple'][fifoProcesses.length % 4]}-500`,
+                              status: 'waiting' as const,
+                            };
+                            setFifoProcesses([...fifoProcesses, newProc]);
+                            setFifoLogs(prev => [...prev, `P${newProc.id} añadido en nivel 0`]);
+                          }}
+                          className="px-4 py-2 bg-green-600 hover:bg-green-700 rounded-lg font-medium flex items-center gap-2"
+                        >
+                          <Plus className="size-4" />
+                          Añadir Proceso
+                        </button>
+                        <div className="flex items-center gap-3">
+                          <span className="text-sm text-gray-400">Velocidad:</span>
+                          <Slider
+                            value={fifoSpeed}
+                            onValueChange={setFifoSpeed}
+                            min={100}
+                            max={1000}
+                            step={100}
+                            className="w-32"
+                          />
+                          <span className="text-sm text-gray-400">{fifoSpeed[0]}ms</span>
+                        </div>
+                        <div className="ml-auto text-gray-400">Tiempo: {fifoTime}ms</div>
+                      </div>
+                    </div>
+
+                    {/* Visualización de Colas por Nivel */}
+                    <div className="bg-gray-900 rounded-lg p-6 border border-gray-700">
+                      <h4 className="font-bold text-white mb-4">Colas por Nivel de Prioridad 🎚️</h4>
+                      <div className="grid grid-cols-4 gap-3 mb-4">
+                        {[0, 1, 2, 3].map(level => {
+                          const procsInLevel = fifoProcesses.filter(p => p.level === level);
+                          const quantum = 10 * Math.pow(2, level);
+                          
+                          return (
+                            <div key={level} className={`border-2 rounded-lg p-3 ${
+                              level === 0 ? 'border-green-500' :
+                              level === 1 ? 'border-blue-500' :
+                              level === 2 ? 'border-yellow-500' :
+                              'border-red-500'
+                            }`}>
+                              <div className="text-center mb-2">
+                                <div className="text-xs text-gray-400">Nivel {level}</div>
+                                <div className="text-lg font-bold">Q={quantum}ms</div>
+                                <div className="text-xs text-gray-400">{procsInLevel.length} procesos</div>
+                              </div>
+                              <div className="space-y-1">
+                                {procsInLevel.map(p => (
+                                  <div key={p.id} className={`${p.color} rounded px-2 py-1 text-xs text-center font-bold`}>
+                                    P{p.id}
+                                    {p.status === 'executing' && ' ▶'}
+                                  </div>
+                                ))}
+                              </div>
+                            </div>
+                          );
+                        })}
+                      </div>
+
+                      {/* Detalles de procesos */}
+                      <div className="space-y-2 mt-4">
+                        {fifoProcesses.map(proc => (
+                          <div key={proc.id} className="bg-gray-800 rounded p-3 flex items-center justify-between">
+                            <div className="flex items-center gap-3">
+                              <div className={`w-3 h-3 rounded ${proc.color}`}></div>
+                              <span className="font-bold">P{proc.id}</span>
+                              {proc.status === 'executing' && <span className="text-xs bg-green-600 px-2 py-1 rounded">▶ EJECUTANDO</span>}
+                            </div>
+                            <div className="flex items-center gap-6 text-sm">
+                              <div>
+                                <span className="text-gray-400">Nivel:</span>
+                                <span className="ml-2 text-white font-mono font-bold">{proc.level}</span>
+                              </div>
+                              <div>
+                                <span className="text-gray-400">Espera:</span>
+                                <span className="ml-2 text-yellow-400 font-mono">{proc.waitTime}ms</span>
+                              </div>
+                              <div>
+                                <span className="text-gray-400">Ejecutado:</span>
+                                <span className="ml-2 text-green-400 font-mono">{proc.executionTime}ms</span>
+                              </div>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Logs */}
+                    <div className="bg-gray-900 rounded-lg p-4 border border-gray-700">
+                      <h4 className="font-bold text-white mb-2">Eventos de Promoción/Degradación</h4>
+                      <div 
+                        ref={fifoLogRef}
+                        className="bg-black rounded p-3 font-mono text-xs text-green-400 h-48 overflow-y-auto"
+                      >
+                        {fifoLogs.map((log, idx) => (
+                          <div key={idx}>{log}</div>
+                        ))}
+                      </div>
+                    </div>
                   </div>
                 </TabsContent>
 

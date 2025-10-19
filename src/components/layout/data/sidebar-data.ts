@@ -23,7 +23,7 @@ const Actividades: NavGroup = {
         { title: 'Bloqueos Innecesarios', url: '/actividad11/bloqueos-innecesarios', icon: FileText },
         { title: 'Eventos', url: '/actividad11/eventos', icon: FileText },
         { title: 'Priority Inversion', url: '/actividad11/priority-inversion', icon: FileText },
-        { title: 'ABA Problem', url: '/actividad11/aba-problem', icon: FileText },
+        { title: 'ABA', url: '/actividad11/aba', icon: FileText },
         { title: 'Memory Consistency', url: '/actividad11/memory-consistency', icon: FileText },
         { title: 'Thundering Herd', url: '/actividad11/thundering-herd', icon: FileText },
         { title: 'Convoying', url: '/actividad11/convoying', icon: FileText },

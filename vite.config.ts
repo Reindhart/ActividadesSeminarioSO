@@ -5,7 +5,7 @@ import { TanStackRouterVite } from '@tanstack/router-vite-plugin';
 import path from 'path';
 
 export default defineConfig({
-  base: "/ActividadesSeminarioSO",
+  base: "/",
   plugins: [react(), tailwindcss(), TanStackRouterVite()],
   resolve: {
     alias: {
