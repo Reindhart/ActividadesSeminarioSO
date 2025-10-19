@@ -1,7 +1,15 @@
 import { createFileRoute } from '@tanstack/react-router';
-import Inicio from '../features/inicio';
+import { useEffect } from 'react';
 
-// Use createFileRoute without a literal argument and provide `path` in the route object
-export const Route = createFileRoute()({
-  component: Inicio,
+function RedirectToActividades() {
+  useEffect(() => {
+    // Use a hard redirect to avoid typing issues with the router's navigate API
+    window.location.replace('/ActividadesSeminarioSO');
+  }, []);
+  return null;
+}
+
+// Root route redirects to /ActividadesSeminarioSO
+export const Route = createFileRoute('/')({
+  component: RedirectToActividades,
 });

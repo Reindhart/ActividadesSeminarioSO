@@ -15,6 +15,7 @@ import { Route as Actividad12RouteImport } from './routes/actividad12'
 import { Route as Actividad11RouteImport } from './routes/actividad11'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as Actividad11IndexRouteImport } from './routes/actividad11/index'
+import { Route as ActividadesSeminarioSOIndexRouteImport } from './routes/ActividadesSeminarioSO/index'
 import { Route as Actividad11ThunderingHerdRouteImport } from './routes/actividad11/thundering-herd'
 import { Route as Actividad11StarvationRouteImport } from './routes/actividad11/starvation'
 import { Route as Actividad11PriorityInversionRouteImport } from './routes/actividad11/priority-inversion'
@@ -61,6 +62,12 @@ const Actividad11IndexRoute = Actividad11IndexRouteImport.update({
   path: '/',
   getParentRoute: () => Actividad11Route,
 } as any)
+const ActividadesSeminarioSOIndexRoute =
+  ActividadesSeminarioSOIndexRouteImport.update({
+    id: '/ActividadesSeminarioSO/',
+    path: '/ActividadesSeminarioSO/',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const Actividad11ThunderingHerdRoute =
   Actividad11ThunderingHerdRouteImport.update({
     id: '/thundering-herd',
@@ -165,6 +172,7 @@ export interface FileRoutesByFullPath {
   '/actividad11/priority-inversion': typeof Actividad11PriorityInversionRoute
   '/actividad11/starvation': typeof Actividad11StarvationRoute
   '/actividad11/thundering-herd': typeof Actividad11ThunderingHerdRoute
+  '/ActividadesSeminarioSO': typeof ActividadesSeminarioSOIndexRoute
   '/actividad11/': typeof Actividad11IndexRoute
 }
 export interface FileRoutesByTo {
@@ -187,6 +195,7 @@ export interface FileRoutesByTo {
   '/actividad11/priority-inversion': typeof Actividad11PriorityInversionRoute
   '/actividad11/starvation': typeof Actividad11StarvationRoute
   '/actividad11/thundering-herd': typeof Actividad11ThunderingHerdRoute
+  '/ActividadesSeminarioSO': typeof ActividadesSeminarioSOIndexRoute
   '/actividad11': typeof Actividad11IndexRoute
 }
 export interface FileRoutesById {
@@ -211,6 +220,7 @@ export interface FileRoutesById {
   '/actividad11/priority-inversion': typeof Actividad11PriorityInversionRoute
   '/actividad11/starvation': typeof Actividad11StarvationRoute
   '/actividad11/thundering-herd': typeof Actividad11ThunderingHerdRoute
+  '/ActividadesSeminarioSO/': typeof ActividadesSeminarioSOIndexRoute
   '/actividad11/': typeof Actividad11IndexRoute
 }
 export interface FileRouteTypes {
@@ -236,6 +246,7 @@ export interface FileRouteTypes {
     | '/actividad11/priority-inversion'
     | '/actividad11/starvation'
     | '/actividad11/thundering-herd'
+    | '/ActividadesSeminarioSO'
     | '/actividad11/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -258,6 +269,7 @@ export interface FileRouteTypes {
     | '/actividad11/priority-inversion'
     | '/actividad11/starvation'
     | '/actividad11/thundering-herd'
+    | '/ActividadesSeminarioSO'
     | '/actividad11'
   id:
     | '__root__'
@@ -281,6 +293,7 @@ export interface FileRouteTypes {
     | '/actividad11/priority-inversion'
     | '/actividad11/starvation'
     | '/actividad11/thundering-herd'
+    | '/ActividadesSeminarioSO/'
     | '/actividad11/'
   fileRoutesById: FileRoutesById
 }
@@ -290,6 +303,7 @@ export interface RootRouteChildren {
   Actividad12Route: typeof Actividad12Route
   Actividad13Route: typeof Actividad13Route
   Actividad14Route: typeof Actividad14Route
+  ActividadesSeminarioSOIndexRoute: typeof ActividadesSeminarioSOIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -335,6 +349,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/actividad11/'
       preLoaderRoute: typeof Actividad11IndexRouteImport
       parentRoute: typeof Actividad11Route
+    }
+    '/ActividadesSeminarioSO/': {
+      id: '/ActividadesSeminarioSO/'
+      path: '/ActividadesSeminarioSO'
+      fullPath: '/ActividadesSeminarioSO'
+      preLoaderRoute: typeof ActividadesSeminarioSOIndexRouteImport
+      parentRoute: typeof rootRouteImport
     }
     '/actividad11/thundering-herd': {
       id: '/actividad11/thundering-herd'
@@ -492,6 +513,7 @@ const rootRouteChildren: RootRouteChildren = {
   Actividad12Route: Actividad12Route,
   Actividad13Route: Actividad13Route,
   Actividad14Route: Actividad14Route,
+  ActividadesSeminarioSOIndexRoute: ActividadesSeminarioSOIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
