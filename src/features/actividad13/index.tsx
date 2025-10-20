@@ -141,7 +141,7 @@ export default function Actividad13() {
           <div className="bg-gradient-to-r from-blue-600 to-blue-700 px-8 py-6">
             <h2 className="text-2xl font-bold text-white flex items-center gap-3">
               <FileCode className="size-6" />
-              Descripción de los Scripts
+              Scripts
             </h2>
           </div>
 
