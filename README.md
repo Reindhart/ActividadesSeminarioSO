@@ -1,72 +1,65 @@
-# Actividades React - Seminario de Sistemas Operativos
+# ActividadesReact — Seminario de Sistemas Operativos
 
-Este proyecto contiene las actividades prácticas para la materia **"Seminario de Solución de Problemas de Uso, Adaptación y Explotación de Sistemas Operativos"**.
+Este repositorio contiene las actividades prácticas y materiales del curso "Seminario de Solución de Problemas de Uso, Adaptación y Explotación de Sistemas Operativos".
 
-**Autor:** Joan Alejandro Piña Puga
+Autor: Joan Alejandro Piña Puga
 
-## 🚀 Tecnologías
+## 🚀 Tecnologías principales
 
-- **React 19** - Biblioteca de UI
-- **TypeScript** - Tipado estático
-- **Vite** - Build tool y dev server
-- **TanStack Router** - Enrutamiento type-safe
-- **DaisyUI** - Componentes UI basados en Tailwind CSS
-- **Tailwind CSS v4** - Framework de CSS utility-first
+- React 19 + TypeScript
+- Vite (dev server y build)
+- TanStack Router (enrutamiento)
+- Tailwind CSS + DaisyUI + Shadcn
+- lucide-react (íconos)
 
 ## 📁 Estructura del Proyecto
 
 ```
-src/
-├── routes/           # Rutas de TanStack Router
-│   ├── __root.tsx    # Layout principal con sidebar
-│   ├── index.tsx     # Página de inicio
-│   ├── actividad11.tsx
-│   ├── actividad12.tsx
-│   ├── actividad13.tsx
-│   └── actividad14.tsx
-├── features/         # Módulos de características
-│   ├── inicio/       # Página de bienvenida
-│   ├── actividad11/  # Concurrencia
-│   │   ├── index.tsx
-│   │   └── components/
-│   ├── actividad12/
-│   ├── actividad13/
-│   └── actividad14/
-└── components/       # Componentes compartidos
-    └── Sidebar.tsx   # Navegación lateral
+ActividadesReact/
+├─ src/
+│  ├─ index.tsx                # Entrada principal
+│  ├─ index.css
+│  ├─ features/
+│  │  ├─ actividad11/
+│  │  ├─ actividad12/          # Productor-Consumidor (logs, scroll inteligente)
+│  │  ├─ actividad13/          # Scripts y recursos (Windows / Linux) - UI de tabs/accordions
+│  │  └─ actividad14/          # Algoritmo del Banquero (interactivo)
+│  ├─ components/              # Componentes compartidos (Sidebar, Header...)
+│  └─ routes/                  # Rutas del proyecto (TanStack Router)
+├─ public/
+├─ package.json
+└─ README.md
 ```
 
-## 📚 Actividades
+## 📚 Estado actual 
 
-### Actividad 11: Aplicaciones y Soluciones de Problemas de Concurrencia ✅
+- Actividad 11: contenidos disponibles.
+- Actividad 12: demo interactiva (Productor-Consumidor) con scroll inteligente y control de buffer.
+- Actividad 13: página de scripts organizada por plataforma (Windows / Linux) y por extensión (.bat, .cmd, .ps1 / .sh, .py, .pl).
+- Actividad 14: implementación del Algoritmo del Banquero y demo interactiva.
 
-Explora 14 problemas comunes en programación concurrente.
+Nota: el proyecto sigue en desarrollo y puede haber ajustes de contenido y estilo.
 
-### Actividades 12, 13, 14 🔜
+## Cómo ejecutar (desarrollo)
 
-Próximamente disponibles...
+Instala dependencias y arranca el servidor de desarrollo:
 
-## 🛠️ Instalación
-
-```bash
-# Instalar dependencias
+```pwsh
+# desde la raíz del proyecto
 npm install
-
-# Iniciar servidor de desarrollo
 npm run dev
+```
 
-# Build para producción
+El servidor corre por defecto en: http://localhost:5173/ActividadesSeminarioSO (o puerto similar según la configuración).
+
+Para construir la versión de producción:
+
+```pwsh
 npm run build
 ```
 
-## 🎨 Características
+## Notas de implementación y decisiones importantes
 
-- ✅ **Navegación type-safe** con TanStack Router
-- ✅ **Sidebar responsive** con drawer para móviles
-- ✅ **UI moderna** con DaisyUI y Tailwind CSS
-- ✅ **Estructura modular** por características
+- Las páginas de actividad están organizadas en `src/features/actividadXX` para facilitar la extensión y pruebas independientes.
 
----
 
-**Materia:** Seminario de Solución de Problemas de Uso, Adaptación y Explotación de Sistemas Operativos  
-**Año:** 2025
