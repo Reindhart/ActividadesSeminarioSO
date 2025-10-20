@@ -6,7 +6,7 @@ const Actividades: NavGroup = {
   items: [
     {
       title: 'Inicio',
-      url: '/ActividadesSeminarioSO/',
+      url: '/ActividadesSeminarioSO',
       icon: Home,
     },
     {
@@ -36,7 +36,7 @@ const Actividades: NavGroup = {
       url: '/ActividadesSeminarioSO/actividad12',
       icon: Users,
       items: [
-        { title: 'Próximamente...', url: 'ActividadesSeminarioSO/actividad12/problema1', icon: Users }, 
+        { title: 'Próximamente...', url: '/ActividadesSeminarioSO/actividad12/problema1', icon: Users }, 
       ],
     },
     {

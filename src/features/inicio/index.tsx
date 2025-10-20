@@ -27,7 +27,7 @@ export default function Inicio() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* Actividad 11 */}
           <Link 
-            to="/actividad11" 
+            to="/ActividadesSeminarioSO/actividad11" 
             className="block rounded-lg border border-gray-200 bg-white p-6 shadow-sm transition-all hover:shadow-lg hover:scale-105"
           >
             <div className="flex items-start gap-4">
@@ -47,6 +47,10 @@ export default function Inicio() {
           </Link>
 
           {/* Actividad 12 - Próximamente */}
+          <Link 
+            to="/ActividadesSeminarioSO/actividad12" 
+            className="block rounded-lg border border-gray-200 bg-white p-6 shadow-sm transition-all hover:shadow-lg hover:scale-105"
+          >
           <div className="rounded-lg border border-gray-200 bg-white p-6 shadow-sm opacity-60">
             <div className="flex items-start gap-4">
               <div className="flex size-12 items-center justify-center rounded-lg bg-gray-100 text-gray-400">
@@ -63,6 +67,7 @@ export default function Inicio() {
               </div>
             </div>
           </div>
+          </Link>
 
           {/* Actividad 13 - Próximamente */}
           <div className="rounded-lg border border-gray-200 bg-white p-6 shadow-sm opacity-60">

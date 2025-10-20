@@ -40,8 +40,8 @@ export default function Sidebar() {
           {/* Actividad 11 */}
           <li>
             <Link
-              to="/actividad11"
-              className={isActive('/actividad11') ? 'active' : ''}
+              to="/ActividadesSeminarioSO/actividad11"
+              className={isActive('/ActividadesSeminarioSO/actividad11') ? 'active' : ''}
             >
               <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
@@ -53,8 +53,8 @@ export default function Sidebar() {
           {/* Actividad 12 */}
           <li>
             <Link
-              to="/actividad12"
-              className={`${isActive('/actividad12') ? 'active' : ''} btn-disabled`}
+              to="/ActividadesSeminarioSO/actividad12"
+              className={`${isActive('/ActividadesSeminarioSO/actividad12') ? 'active' : ''} btn-disabled`}
             >
               <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
@@ -66,8 +66,8 @@ export default function Sidebar() {
           {/* Actividad 13 */}
           <li>
             <Link
-              to="/actividad13"
-              className={`${isActive('/actividad13') ? 'active' : ''} btn-disabled`}
+              to="/ActividadesSeminarioSO/actividad13"
+              className={`${isActive('/ActividadesSeminarioSO/actividad13') ? 'active' : ''} btn-disabled`}
             >
               <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
@@ -79,8 +79,8 @@ export default function Sidebar() {
           {/* Actividad 14 */}
           <li>
             <Link
-              to="/actividad14"
-              className={`${isActive('/actividad14') ? 'active' : ''} btn-disabled`}
+              to="/ActividadesSeminarioSO/actividad14"
+              className={`${isActive('/ActividadesSeminarioSO/actividad14') ? 'active' : ''} btn-disabled`}
             >
               <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
