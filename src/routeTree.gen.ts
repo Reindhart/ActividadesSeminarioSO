@@ -14,7 +14,6 @@ import { Route as ActividadesSeminarioSOActividad14IndexRouteImport } from './ro
 import { Route as ActividadesSeminarioSOActividad13IndexRouteImport } from './routes/ActividadesSeminarioSO/actividad13/index'
 import { Route as ActividadesSeminarioSOActividad12IndexRouteImport } from './routes/ActividadesSeminarioSO/actividad12/index'
 import { Route as ActividadesSeminarioSOActividad11IndexRouteImport } from './routes/ActividadesSeminarioSO/actividad11/index'
-import { Route as ActividadesSeminarioSOActividad12Problema1RouteImport } from './routes/ActividadesSeminarioSO/actividad12/problema1'
 import { Route as ActividadesSeminarioSOActividad11ThunderingHerdRouteImport } from './routes/ActividadesSeminarioSO/actividad11/thundering-herd'
 import { Route as ActividadesSeminarioSOActividad11StarvationRouteImport } from './routes/ActividadesSeminarioSO/actividad11/starvation'
 import { Route as ActividadesSeminarioSOActividad11PriorityInversionRouteImport } from './routes/ActividadesSeminarioSO/actividad11/priority-inversion'
@@ -59,12 +58,6 @@ const ActividadesSeminarioSOActividad11IndexRoute =
   ActividadesSeminarioSOActividad11IndexRouteImport.update({
     id: '/ActividadesSeminarioSO/actividad11/',
     path: '/ActividadesSeminarioSO/actividad11/',
-    getParentRoute: () => rootRouteImport,
-  } as any)
-const ActividadesSeminarioSOActividad12Problema1Route =
-  ActividadesSeminarioSOActividad12Problema1RouteImport.update({
-    id: '/ActividadesSeminarioSO/actividad12/problema1',
-    path: '/ActividadesSeminarioSO/actividad12/problema1',
     getParentRoute: () => rootRouteImport,
   } as any)
 const ActividadesSeminarioSOActividad11ThunderingHerdRoute =
@@ -175,7 +168,6 @@ export interface FileRoutesByFullPath {
   '/ActividadesSeminarioSO/actividad11/priority-inversion': typeof ActividadesSeminarioSOActividad11PriorityInversionRoute
   '/ActividadesSeminarioSO/actividad11/starvation': typeof ActividadesSeminarioSOActividad11StarvationRoute
   '/ActividadesSeminarioSO/actividad11/thundering-herd': typeof ActividadesSeminarioSOActividad11ThunderingHerdRoute
-  '/ActividadesSeminarioSO/actividad12/problema1': typeof ActividadesSeminarioSOActividad12Problema1Route
   '/ActividadesSeminarioSO/actividad11': typeof ActividadesSeminarioSOActividad11IndexRoute
   '/ActividadesSeminarioSO/actividad12': typeof ActividadesSeminarioSOActividad12IndexRoute
   '/ActividadesSeminarioSO/actividad13': typeof ActividadesSeminarioSOActividad13IndexRoute
@@ -198,7 +190,6 @@ export interface FileRoutesByTo {
   '/ActividadesSeminarioSO/actividad11/priority-inversion': typeof ActividadesSeminarioSOActividad11PriorityInversionRoute
   '/ActividadesSeminarioSO/actividad11/starvation': typeof ActividadesSeminarioSOActividad11StarvationRoute
   '/ActividadesSeminarioSO/actividad11/thundering-herd': typeof ActividadesSeminarioSOActividad11ThunderingHerdRoute
-  '/ActividadesSeminarioSO/actividad12/problema1': typeof ActividadesSeminarioSOActividad12Problema1Route
   '/ActividadesSeminarioSO/actividad11': typeof ActividadesSeminarioSOActividad11IndexRoute
   '/ActividadesSeminarioSO/actividad12': typeof ActividadesSeminarioSOActividad12IndexRoute
   '/ActividadesSeminarioSO/actividad13': typeof ActividadesSeminarioSOActividad13IndexRoute
@@ -222,7 +213,6 @@ export interface FileRoutesById {
   '/ActividadesSeminarioSO/actividad11/priority-inversion': typeof ActividadesSeminarioSOActividad11PriorityInversionRoute
   '/ActividadesSeminarioSO/actividad11/starvation': typeof ActividadesSeminarioSOActividad11StarvationRoute
   '/ActividadesSeminarioSO/actividad11/thundering-herd': typeof ActividadesSeminarioSOActividad11ThunderingHerdRoute
-  '/ActividadesSeminarioSO/actividad12/problema1': typeof ActividadesSeminarioSOActividad12Problema1Route
   '/ActividadesSeminarioSO/actividad11/': typeof ActividadesSeminarioSOActividad11IndexRoute
   '/ActividadesSeminarioSO/actividad12/': typeof ActividadesSeminarioSOActividad12IndexRoute
   '/ActividadesSeminarioSO/actividad13/': typeof ActividadesSeminarioSOActividad13IndexRoute
@@ -247,7 +237,6 @@ export interface FileRouteTypes {
     | '/ActividadesSeminarioSO/actividad11/priority-inversion'
     | '/ActividadesSeminarioSO/actividad11/starvation'
     | '/ActividadesSeminarioSO/actividad11/thundering-herd'
-    | '/ActividadesSeminarioSO/actividad12/problema1'
     | '/ActividadesSeminarioSO/actividad11'
     | '/ActividadesSeminarioSO/actividad12'
     | '/ActividadesSeminarioSO/actividad13'
@@ -270,7 +259,6 @@ export interface FileRouteTypes {
     | '/ActividadesSeminarioSO/actividad11/priority-inversion'
     | '/ActividadesSeminarioSO/actividad11/starvation'
     | '/ActividadesSeminarioSO/actividad11/thundering-herd'
-    | '/ActividadesSeminarioSO/actividad12/problema1'
     | '/ActividadesSeminarioSO/actividad11'
     | '/ActividadesSeminarioSO/actividad12'
     | '/ActividadesSeminarioSO/actividad13'
@@ -293,7 +281,6 @@ export interface FileRouteTypes {
     | '/ActividadesSeminarioSO/actividad11/priority-inversion'
     | '/ActividadesSeminarioSO/actividad11/starvation'
     | '/ActividadesSeminarioSO/actividad11/thundering-herd'
-    | '/ActividadesSeminarioSO/actividad12/problema1'
     | '/ActividadesSeminarioSO/actividad11/'
     | '/ActividadesSeminarioSO/actividad12/'
     | '/ActividadesSeminarioSO/actividad13/'
@@ -317,7 +304,6 @@ export interface RootRouteChildren {
   ActividadesSeminarioSOActividad11PriorityInversionRoute: typeof ActividadesSeminarioSOActividad11PriorityInversionRoute
   ActividadesSeminarioSOActividad11StarvationRoute: typeof ActividadesSeminarioSOActividad11StarvationRoute
   ActividadesSeminarioSOActividad11ThunderingHerdRoute: typeof ActividadesSeminarioSOActividad11ThunderingHerdRoute
-  ActividadesSeminarioSOActividad12Problema1Route: typeof ActividadesSeminarioSOActividad12Problema1Route
   ActividadesSeminarioSOActividad11IndexRoute: typeof ActividadesSeminarioSOActividad11IndexRoute
   ActividadesSeminarioSOActividad12IndexRoute: typeof ActividadesSeminarioSOActividad12IndexRoute
   ActividadesSeminarioSOActividad13IndexRoute: typeof ActividadesSeminarioSOActividad13IndexRoute
@@ -359,13 +345,6 @@ declare module '@tanstack/react-router' {
       path: '/ActividadesSeminarioSO/actividad11'
       fullPath: '/ActividadesSeminarioSO/actividad11'
       preLoaderRoute: typeof ActividadesSeminarioSOActividad11IndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/ActividadesSeminarioSO/actividad12/problema1': {
-      id: '/ActividadesSeminarioSO/actividad12/problema1'
-      path: '/ActividadesSeminarioSO/actividad12/problema1'
-      fullPath: '/ActividadesSeminarioSO/actividad12/problema1'
-      preLoaderRoute: typeof ActividadesSeminarioSOActividad12Problema1RouteImport
       parentRoute: typeof rootRouteImport
     }
     '/ActividadesSeminarioSO/actividad11/thundering-herd': {
@@ -508,8 +487,6 @@ const rootRouteChildren: RootRouteChildren = {
     ActividadesSeminarioSOActividad11StarvationRoute,
   ActividadesSeminarioSOActividad11ThunderingHerdRoute:
     ActividadesSeminarioSOActividad11ThunderingHerdRoute,
-  ActividadesSeminarioSOActividad12Problema1Route:
-    ActividadesSeminarioSOActividad12Problema1Route,
   ActividadesSeminarioSOActividad11IndexRoute:
     ActividadesSeminarioSOActividad11IndexRoute,
   ActividadesSeminarioSOActividad12IndexRoute:

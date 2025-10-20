@@ -35,9 +35,6 @@ const Actividades: NavGroup = {
       title: 'Actividad 12',
       url: '/ActividadesSeminarioSO/actividad12',
       icon: Users,
-      items: [
-        { title: 'Próximamente...', url: '/ActividadesSeminarioSO/actividad12/problema1', icon: Users }, 
-      ],
     },
     {
       title: 'Actividad 13',

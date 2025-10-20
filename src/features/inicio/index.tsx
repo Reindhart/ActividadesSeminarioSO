@@ -46,27 +46,25 @@ export default function Inicio() {
             </div>
           </Link>
 
-          {/* Actividad 12 - Próximamente */}
+          {/* Actividad 12 */}
           <Link 
             to="/ActividadesSeminarioSO/actividad12" 
             className="block rounded-lg border border-gray-200 bg-white p-6 shadow-sm transition-all hover:shadow-lg hover:scale-105"
           >
-          <div className="rounded-lg border border-gray-200 bg-white p-6 shadow-sm opacity-60">
             <div className="flex items-start gap-4">
-              <div className="flex size-12 items-center justify-center rounded-lg bg-gray-100 text-gray-400">
+              <div className="flex size-12 items-center justify-center rounded-lg bg-purple-100 text-purple-600">
                 <Users className="size-6" />
               </div>
               <div className="flex-1">
                 <h2 className="text-2xl font-bold text-gray-900 mb-2">Actividad 12</h2>
                 <p className="text-gray-600 mb-4">
-                  Próximamente...
+                  Problema Productor-Consumidor con semáforos
                 </p>
-                <span className="inline-block bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-xs font-medium">
-                  Próximamente
+                <span className="inline-block bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-xs font-medium">
+                  Disponible
                 </span>
               </div>
             </div>
-          </div>
           </Link>
 
           {/* Actividad 13 - Próximamente */}
@@ -87,23 +85,26 @@ export default function Inicio() {
             </div>
           </div>
 
-          {/* Actividad 14 - Próximamente */}
-          <div className="rounded-lg border border-gray-200 bg-white p-6 shadow-sm opacity-60">
+          {/* Actividad 14 */}
+          <Link 
+            to="/ActividadesSeminarioSO/actividad14" 
+            className="block rounded-lg border border-gray-200 bg-white p-6 shadow-sm transition-all hover:shadow-lg hover:scale-105"
+          >
             <div className="flex items-start gap-4">
-              <div className="flex size-12 items-center justify-center rounded-lg bg-gray-100 text-gray-400">
+              <div className="flex size-12 items-center justify-center rounded-lg bg-blue-100 text-blue-600">
                 <Settings className="size-6" />
               </div>
               <div className="flex-1">
                 <h2 className="text-2xl font-bold text-gray-900 mb-2">Actividad 14</h2>
                 <p className="text-gray-600 mb-4">
-                  Próximamente...
+                  Algoritmo del Banquero para prevención de deadlock
                 </p>
-                <span className="inline-block bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-xs font-medium">
-                  Próximamente
+                <span className="inline-block bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs font-medium">
+                  Disponible
                 </span>
               </div>
             </div>
-          </div>
+          </Link>
         </div>
       </div>
 

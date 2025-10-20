@@ -15,7 +15,7 @@ export default function Sidebar() {
       <div className="menu p-4 w-80 min-h-full bg-base-200 text-base-content">
         {/* Título del sidebar */}
         <div className="mb-4">
-          <h2 className="text-xl font-bold px-4">Actividades</h2>
+          <h2 className="text-xl font-bold px-4">Actividades tilin</h2>
           <p className="text-xs px-4 mt-1 opacity-70">Seminario SO</p>
         </div>
         
@@ -54,7 +54,7 @@ export default function Sidebar() {
           <li>
             <Link
               to="/ActividadesSeminarioSO/actividad12"
-              className={`${isActive('/ActividadesSeminarioSO/actividad12') ? 'active' : ''} btn-disabled`}
+              className={isActive('/ActividadesSeminarioSO/actividad12') ? 'active' : ''}
             >
               <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
@@ -80,7 +80,7 @@ export default function Sidebar() {
           <li>
             <Link
               to="/ActividadesSeminarioSO/actividad14"
-              className={`${isActive('/ActividadesSeminarioSO/actividad14') ? 'active' : ''} btn-disabled`}
+              className={isActive('/ActividadesSeminarioSO/actividad14') ? 'active' : ''}
             >
               <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
