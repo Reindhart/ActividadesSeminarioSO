@@ -3,7 +3,7 @@ import { AlertCircle, BookOpen } from 'lucide-react';
 
 export default function Actividad12() {
   return (
-    <div className="min-h-screen bg-gray-900 text-gray-100 pb-12">
+    <div className="min-h-screen bg-gray-900 text-gray-100">
       {/* Header */}
       <div className="bg-gray-800 border-b border-gray-700 py-8">
         <div className="max-w-6xl mx-auto px-6">

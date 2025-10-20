@@ -35,6 +35,7 @@ export default function ProductoConsumidor() {
   const logsEndRef = useRef<HTMLDivElement>(null);
   const logsContainerRef = useRef<HTMLDivElement>(null);
   const [isUserScrolling, setIsUserScrolling] = useState(false);
+  const isFirstRender = useRef(true);
 
   // IDs para items
   const nextItemId = useRef(1);
@@ -46,7 +47,14 @@ export default function ProductoConsumidor() {
 
   // Auto-scroll de logs solo si el usuario está al fondo
   useEffect(() => {
-    if (!isUserScrolling && logsEndRef.current) {
+    // Evitar hacer scroll automático en el primer render de montaje
+    if (isFirstRender.current) {
+      isFirstRender.current = false;
+      return;
+    }
+
+    // Solo auto-scroll si el usuario está en el fondo y hay logs
+    if (!isUserScrolling && logsEndRef.current && logs.length > 0) {
       logsEndRef.current.scrollIntoView({ behavior: 'smooth' });
     }
   }, [logs, isUserScrolling]);
