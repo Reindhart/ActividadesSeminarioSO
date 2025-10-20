@@ -91,8 +91,7 @@ export default function Actividad11() {
             {problemas.map((problema) => (
               <Link
                 key={problema.id}
-                // @ts-expect-error: dynamic route string
-                to={`/actividad11/${problema.id}`}
+                to={`/ActividadesSeminarioSO/actividad11/${problema.id}`}
                 className={`block rounded-lg bg-gradient-to-br ${problema.color} p-6 shadow-lg transition-all hover:shadow-xl hover:scale-105`}
               >
                 <div className="text-4xl mb-3">{problema.icon}</div>
