@@ -9,347 +9,323 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as Actividad14RouteImport } from './routes/actividad14'
-import { Route as Actividad13RouteImport } from './routes/actividad13'
-import { Route as Actividad12RouteImport } from './routes/actividad12'
-import { Route as Actividad11RouteImport } from './routes/actividad11'
-import { Route as IndexRouteImport } from './routes/index'
-import { Route as Actividad11IndexRouteImport } from './routes/actividad11/index'
 import { Route as ActividadesSeminarioSOIndexRouteImport } from './routes/ActividadesSeminarioSO/index'
-import { Route as Actividad11ThunderingHerdRouteImport } from './routes/actividad11/thundering-herd'
-import { Route as Actividad11StarvationRouteImport } from './routes/actividad11/starvation'
-import { Route as Actividad11PriorityInversionRouteImport } from './routes/actividad11/priority-inversion'
-import { Route as Actividad11MemoryConsistencyRouteImport } from './routes/actividad11/memory-consistency'
-import { Route as Actividad11LostWakeupRouteImport } from './routes/actividad11/lost-wakeup'
-import { Route as Actividad11LivelockRouteImport } from './routes/actividad11/livelock'
-import { Route as Actividad11LecturaEscrituraRouteImport } from './routes/actividad11/lectura-escritura'
-import { Route as Actividad11FalseSharingRouteImport } from './routes/actividad11/false-sharing'
-import { Route as Actividad11EventosRouteImport } from './routes/actividad11/eventos'
-import { Route as Actividad11DeadlockRouteImport } from './routes/actividad11/deadlock'
-import { Route as Actividad11ConvoyingRouteImport } from './routes/actividad11/convoying'
-import { Route as Actividad11ContencionRecursosRouteImport } from './routes/actividad11/contencion-recursos'
-import { Route as Actividad11CondicionCarreraRouteImport } from './routes/actividad11/condicion-carrera'
-import { Route as Actividad11BloqueosInnecesariosRouteImport } from './routes/actividad11/bloqueos-innecesarios'
-import { Route as Actividad11AbaRouteImport } from './routes/actividad11/aba'
+import { Route as ActividadesSeminarioSOActividad14IndexRouteImport } from './routes/ActividadesSeminarioSO/actividad14/index'
+import { Route as ActividadesSeminarioSOActividad13IndexRouteImport } from './routes/ActividadesSeminarioSO/actividad13/index'
+import { Route as ActividadesSeminarioSOActividad12IndexRouteImport } from './routes/ActividadesSeminarioSO/actividad12/index'
+import { Route as ActividadesSeminarioSOActividad11IndexRouteImport } from './routes/ActividadesSeminarioSO/actividad11/index'
+import { Route as ActividadesSeminarioSOActividad12Problema1RouteImport } from './routes/ActividadesSeminarioSO/actividad12/problema1'
+import { Route as ActividadesSeminarioSOActividad11ThunderingHerdRouteImport } from './routes/ActividadesSeminarioSO/actividad11/thundering-herd'
+import { Route as ActividadesSeminarioSOActividad11StarvationRouteImport } from './routes/ActividadesSeminarioSO/actividad11/starvation'
+import { Route as ActividadesSeminarioSOActividad11PriorityInversionRouteImport } from './routes/ActividadesSeminarioSO/actividad11/priority-inversion'
+import { Route as ActividadesSeminarioSOActividad11MemoryConsistencyRouteImport } from './routes/ActividadesSeminarioSO/actividad11/memory-consistency'
+import { Route as ActividadesSeminarioSOActividad11LostWakeupRouteImport } from './routes/ActividadesSeminarioSO/actividad11/lost-wakeup'
+import { Route as ActividadesSeminarioSOActividad11LivelockRouteImport } from './routes/ActividadesSeminarioSO/actividad11/livelock'
+import { Route as ActividadesSeminarioSOActividad11LecturaEscrituraRouteImport } from './routes/ActividadesSeminarioSO/actividad11/lectura-escritura'
+import { Route as ActividadesSeminarioSOActividad11FalseSharingRouteImport } from './routes/ActividadesSeminarioSO/actividad11/false-sharing'
+import { Route as ActividadesSeminarioSOActividad11EventosRouteImport } from './routes/ActividadesSeminarioSO/actividad11/eventos'
+import { Route as ActividadesSeminarioSOActividad11DeadlockRouteImport } from './routes/ActividadesSeminarioSO/actividad11/deadlock'
+import { Route as ActividadesSeminarioSOActividad11ConvoyingRouteImport } from './routes/ActividadesSeminarioSO/actividad11/convoying'
+import { Route as ActividadesSeminarioSOActividad11ContencionRecursosRouteImport } from './routes/ActividadesSeminarioSO/actividad11/contencion-recursos'
+import { Route as ActividadesSeminarioSOActividad11CondicionCarreraRouteImport } from './routes/ActividadesSeminarioSO/actividad11/condicion-carrera'
+import { Route as ActividadesSeminarioSOActividad11BloqueosInnecesariosRouteImport } from './routes/ActividadesSeminarioSO/actividad11/bloqueos-innecesarios'
+import { Route as ActividadesSeminarioSOActividad11AbaRouteImport } from './routes/ActividadesSeminarioSO/actividad11/aba'
 
-const Actividad14Route = Actividad14RouteImport.update({
-  id: '/actividad14',
-  path: '/actividad14',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const Actividad13Route = Actividad13RouteImport.update({
-  id: '/actividad13',
-  path: '/actividad13',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const Actividad12Route = Actividad12RouteImport.update({
-  id: '/actividad12',
-  path: '/actividad12',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const Actividad11Route = Actividad11RouteImport.update({
-  id: '/actividad11',
-  path: '/actividad11',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const Actividad11IndexRoute = Actividad11IndexRouteImport.update({
-  id: '/',
-  path: '/',
-  getParentRoute: () => Actividad11Route,
-} as any)
 const ActividadesSeminarioSOIndexRoute =
   ActividadesSeminarioSOIndexRouteImport.update({
     id: '/ActividadesSeminarioSO/',
     path: '/ActividadesSeminarioSO/',
     getParentRoute: () => rootRouteImport,
   } as any)
-const Actividad11ThunderingHerdRoute =
-  Actividad11ThunderingHerdRouteImport.update({
-    id: '/thundering-herd',
-    path: '/thundering-herd',
-    getParentRoute: () => Actividad11Route,
+const ActividadesSeminarioSOActividad14IndexRoute =
+  ActividadesSeminarioSOActividad14IndexRouteImport.update({
+    id: '/ActividadesSeminarioSO/actividad14/',
+    path: '/ActividadesSeminarioSO/actividad14/',
+    getParentRoute: () => rootRouteImport,
   } as any)
-const Actividad11StarvationRoute = Actividad11StarvationRouteImport.update({
-  id: '/starvation',
-  path: '/starvation',
-  getParentRoute: () => Actividad11Route,
-} as any)
-const Actividad11PriorityInversionRoute =
-  Actividad11PriorityInversionRouteImport.update({
-    id: '/priority-inversion',
-    path: '/priority-inversion',
-    getParentRoute: () => Actividad11Route,
+const ActividadesSeminarioSOActividad13IndexRoute =
+  ActividadesSeminarioSOActividad13IndexRouteImport.update({
+    id: '/ActividadesSeminarioSO/actividad13/',
+    path: '/ActividadesSeminarioSO/actividad13/',
+    getParentRoute: () => rootRouteImport,
   } as any)
-const Actividad11MemoryConsistencyRoute =
-  Actividad11MemoryConsistencyRouteImport.update({
-    id: '/memory-consistency',
-    path: '/memory-consistency',
-    getParentRoute: () => Actividad11Route,
+const ActividadesSeminarioSOActividad12IndexRoute =
+  ActividadesSeminarioSOActividad12IndexRouteImport.update({
+    id: '/ActividadesSeminarioSO/actividad12/',
+    path: '/ActividadesSeminarioSO/actividad12/',
+    getParentRoute: () => rootRouteImport,
   } as any)
-const Actividad11LostWakeupRoute = Actividad11LostWakeupRouteImport.update({
-  id: '/lost-wakeup',
-  path: '/lost-wakeup',
-  getParentRoute: () => Actividad11Route,
-} as any)
-const Actividad11LivelockRoute = Actividad11LivelockRouteImport.update({
-  id: '/livelock',
-  path: '/livelock',
-  getParentRoute: () => Actividad11Route,
-} as any)
-const Actividad11LecturaEscrituraRoute =
-  Actividad11LecturaEscrituraRouteImport.update({
-    id: '/lectura-escritura',
-    path: '/lectura-escritura',
-    getParentRoute: () => Actividad11Route,
+const ActividadesSeminarioSOActividad11IndexRoute =
+  ActividadesSeminarioSOActividad11IndexRouteImport.update({
+    id: '/ActividadesSeminarioSO/actividad11/',
+    path: '/ActividadesSeminarioSO/actividad11/',
+    getParentRoute: () => rootRouteImport,
   } as any)
-const Actividad11FalseSharingRoute = Actividad11FalseSharingRouteImport.update({
-  id: '/false-sharing',
-  path: '/false-sharing',
-  getParentRoute: () => Actividad11Route,
-} as any)
-const Actividad11EventosRoute = Actividad11EventosRouteImport.update({
-  id: '/eventos',
-  path: '/eventos',
-  getParentRoute: () => Actividad11Route,
-} as any)
-const Actividad11DeadlockRoute = Actividad11DeadlockRouteImport.update({
-  id: '/deadlock',
-  path: '/deadlock',
-  getParentRoute: () => Actividad11Route,
-} as any)
-const Actividad11ConvoyingRoute = Actividad11ConvoyingRouteImport.update({
-  id: '/convoying',
-  path: '/convoying',
-  getParentRoute: () => Actividad11Route,
-} as any)
-const Actividad11ContencionRecursosRoute =
-  Actividad11ContencionRecursosRouteImport.update({
-    id: '/contencion-recursos',
-    path: '/contencion-recursos',
-    getParentRoute: () => Actividad11Route,
+const ActividadesSeminarioSOActividad12Problema1Route =
+  ActividadesSeminarioSOActividad12Problema1RouteImport.update({
+    id: '/ActividadesSeminarioSO/actividad12/problema1',
+    path: '/ActividadesSeminarioSO/actividad12/problema1',
+    getParentRoute: () => rootRouteImport,
   } as any)
-const Actividad11CondicionCarreraRoute =
-  Actividad11CondicionCarreraRouteImport.update({
-    id: '/condicion-carrera',
-    path: '/condicion-carrera',
-    getParentRoute: () => Actividad11Route,
+const ActividadesSeminarioSOActividad11ThunderingHerdRoute =
+  ActividadesSeminarioSOActividad11ThunderingHerdRouteImport.update({
+    id: '/ActividadesSeminarioSO/actividad11/thundering-herd',
+    path: '/ActividadesSeminarioSO/actividad11/thundering-herd',
+    getParentRoute: () => rootRouteImport,
   } as any)
-const Actividad11BloqueosInnecesariosRoute =
-  Actividad11BloqueosInnecesariosRouteImport.update({
-    id: '/bloqueos-innecesarios',
-    path: '/bloqueos-innecesarios',
-    getParentRoute: () => Actividad11Route,
+const ActividadesSeminarioSOActividad11StarvationRoute =
+  ActividadesSeminarioSOActividad11StarvationRouteImport.update({
+    id: '/ActividadesSeminarioSO/actividad11/starvation',
+    path: '/ActividadesSeminarioSO/actividad11/starvation',
+    getParentRoute: () => rootRouteImport,
   } as any)
-const Actividad11AbaRoute = Actividad11AbaRouteImport.update({
-  id: '/aba',
-  path: '/aba',
-  getParentRoute: () => Actividad11Route,
-} as any)
+const ActividadesSeminarioSOActividad11PriorityInversionRoute =
+  ActividadesSeminarioSOActividad11PriorityInversionRouteImport.update({
+    id: '/ActividadesSeminarioSO/actividad11/priority-inversion',
+    path: '/ActividadesSeminarioSO/actividad11/priority-inversion',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ActividadesSeminarioSOActividad11MemoryConsistencyRoute =
+  ActividadesSeminarioSOActividad11MemoryConsistencyRouteImport.update({
+    id: '/ActividadesSeminarioSO/actividad11/memory-consistency',
+    path: '/ActividadesSeminarioSO/actividad11/memory-consistency',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ActividadesSeminarioSOActividad11LostWakeupRoute =
+  ActividadesSeminarioSOActividad11LostWakeupRouteImport.update({
+    id: '/ActividadesSeminarioSO/actividad11/lost-wakeup',
+    path: '/ActividadesSeminarioSO/actividad11/lost-wakeup',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ActividadesSeminarioSOActividad11LivelockRoute =
+  ActividadesSeminarioSOActividad11LivelockRouteImport.update({
+    id: '/ActividadesSeminarioSO/actividad11/livelock',
+    path: '/ActividadesSeminarioSO/actividad11/livelock',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ActividadesSeminarioSOActividad11LecturaEscrituraRoute =
+  ActividadesSeminarioSOActividad11LecturaEscrituraRouteImport.update({
+    id: '/ActividadesSeminarioSO/actividad11/lectura-escritura',
+    path: '/ActividadesSeminarioSO/actividad11/lectura-escritura',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ActividadesSeminarioSOActividad11FalseSharingRoute =
+  ActividadesSeminarioSOActividad11FalseSharingRouteImport.update({
+    id: '/ActividadesSeminarioSO/actividad11/false-sharing',
+    path: '/ActividadesSeminarioSO/actividad11/false-sharing',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ActividadesSeminarioSOActividad11EventosRoute =
+  ActividadesSeminarioSOActividad11EventosRouteImport.update({
+    id: '/ActividadesSeminarioSO/actividad11/eventos',
+    path: '/ActividadesSeminarioSO/actividad11/eventos',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ActividadesSeminarioSOActividad11DeadlockRoute =
+  ActividadesSeminarioSOActividad11DeadlockRouteImport.update({
+    id: '/ActividadesSeminarioSO/actividad11/deadlock',
+    path: '/ActividadesSeminarioSO/actividad11/deadlock',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ActividadesSeminarioSOActividad11ConvoyingRoute =
+  ActividadesSeminarioSOActividad11ConvoyingRouteImport.update({
+    id: '/ActividadesSeminarioSO/actividad11/convoying',
+    path: '/ActividadesSeminarioSO/actividad11/convoying',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ActividadesSeminarioSOActividad11ContencionRecursosRoute =
+  ActividadesSeminarioSOActividad11ContencionRecursosRouteImport.update({
+    id: '/ActividadesSeminarioSO/actividad11/contencion-recursos',
+    path: '/ActividadesSeminarioSO/actividad11/contencion-recursos',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ActividadesSeminarioSOActividad11CondicionCarreraRoute =
+  ActividadesSeminarioSOActividad11CondicionCarreraRouteImport.update({
+    id: '/ActividadesSeminarioSO/actividad11/condicion-carrera',
+    path: '/ActividadesSeminarioSO/actividad11/condicion-carrera',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ActividadesSeminarioSOActividad11BloqueosInnecesariosRoute =
+  ActividadesSeminarioSOActividad11BloqueosInnecesariosRouteImport.update({
+    id: '/ActividadesSeminarioSO/actividad11/bloqueos-innecesarios',
+    path: '/ActividadesSeminarioSO/actividad11/bloqueos-innecesarios',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ActividadesSeminarioSOActividad11AbaRoute =
+  ActividadesSeminarioSOActividad11AbaRouteImport.update({
+    id: '/ActividadesSeminarioSO/actividad11/aba',
+    path: '/ActividadesSeminarioSO/actividad11/aba',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
-  '/': typeof IndexRoute
-  '/actividad11': typeof Actividad11RouteWithChildren
-  '/actividad12': typeof Actividad12Route
-  '/actividad13': typeof Actividad13Route
-  '/actividad14': typeof Actividad14Route
-  '/actividad11/aba': typeof Actividad11AbaRoute
-  '/actividad11/bloqueos-innecesarios': typeof Actividad11BloqueosInnecesariosRoute
-  '/actividad11/condicion-carrera': typeof Actividad11CondicionCarreraRoute
-  '/actividad11/contencion-recursos': typeof Actividad11ContencionRecursosRoute
-  '/actividad11/convoying': typeof Actividad11ConvoyingRoute
-  '/actividad11/deadlock': typeof Actividad11DeadlockRoute
-  '/actividad11/eventos': typeof Actividad11EventosRoute
-  '/actividad11/false-sharing': typeof Actividad11FalseSharingRoute
-  '/actividad11/lectura-escritura': typeof Actividad11LecturaEscrituraRoute
-  '/actividad11/livelock': typeof Actividad11LivelockRoute
-  '/actividad11/lost-wakeup': typeof Actividad11LostWakeupRoute
-  '/actividad11/memory-consistency': typeof Actividad11MemoryConsistencyRoute
-  '/actividad11/priority-inversion': typeof Actividad11PriorityInversionRoute
-  '/actividad11/starvation': typeof Actividad11StarvationRoute
-  '/actividad11/thundering-herd': typeof Actividad11ThunderingHerdRoute
   '/ActividadesSeminarioSO': typeof ActividadesSeminarioSOIndexRoute
-  '/actividad11/': typeof Actividad11IndexRoute
+  '/ActividadesSeminarioSO/actividad11/aba': typeof ActividadesSeminarioSOActividad11AbaRoute
+  '/ActividadesSeminarioSO/actividad11/bloqueos-innecesarios': typeof ActividadesSeminarioSOActividad11BloqueosInnecesariosRoute
+  '/ActividadesSeminarioSO/actividad11/condicion-carrera': typeof ActividadesSeminarioSOActividad11CondicionCarreraRoute
+  '/ActividadesSeminarioSO/actividad11/contencion-recursos': typeof ActividadesSeminarioSOActividad11ContencionRecursosRoute
+  '/ActividadesSeminarioSO/actividad11/convoying': typeof ActividadesSeminarioSOActividad11ConvoyingRoute
+  '/ActividadesSeminarioSO/actividad11/deadlock': typeof ActividadesSeminarioSOActividad11DeadlockRoute
+  '/ActividadesSeminarioSO/actividad11/eventos': typeof ActividadesSeminarioSOActividad11EventosRoute
+  '/ActividadesSeminarioSO/actividad11/false-sharing': typeof ActividadesSeminarioSOActividad11FalseSharingRoute
+  '/ActividadesSeminarioSO/actividad11/lectura-escritura': typeof ActividadesSeminarioSOActividad11LecturaEscrituraRoute
+  '/ActividadesSeminarioSO/actividad11/livelock': typeof ActividadesSeminarioSOActividad11LivelockRoute
+  '/ActividadesSeminarioSO/actividad11/lost-wakeup': typeof ActividadesSeminarioSOActividad11LostWakeupRoute
+  '/ActividadesSeminarioSO/actividad11/memory-consistency': typeof ActividadesSeminarioSOActividad11MemoryConsistencyRoute
+  '/ActividadesSeminarioSO/actividad11/priority-inversion': typeof ActividadesSeminarioSOActividad11PriorityInversionRoute
+  '/ActividadesSeminarioSO/actividad11/starvation': typeof ActividadesSeminarioSOActividad11StarvationRoute
+  '/ActividadesSeminarioSO/actividad11/thundering-herd': typeof ActividadesSeminarioSOActividad11ThunderingHerdRoute
+  '/ActividadesSeminarioSO/actividad12/problema1': typeof ActividadesSeminarioSOActividad12Problema1Route
+  '/ActividadesSeminarioSO/actividad11': typeof ActividadesSeminarioSOActividad11IndexRoute
+  '/ActividadesSeminarioSO/actividad12': typeof ActividadesSeminarioSOActividad12IndexRoute
+  '/ActividadesSeminarioSO/actividad13': typeof ActividadesSeminarioSOActividad13IndexRoute
+  '/ActividadesSeminarioSO/actividad14': typeof ActividadesSeminarioSOActividad14IndexRoute
 }
 export interface FileRoutesByTo {
-  '/': typeof IndexRoute
-  '/actividad12': typeof Actividad12Route
-  '/actividad13': typeof Actividad13Route
-  '/actividad14': typeof Actividad14Route
-  '/actividad11/aba': typeof Actividad11AbaRoute
-  '/actividad11/bloqueos-innecesarios': typeof Actividad11BloqueosInnecesariosRoute
-  '/actividad11/condicion-carrera': typeof Actividad11CondicionCarreraRoute
-  '/actividad11/contencion-recursos': typeof Actividad11ContencionRecursosRoute
-  '/actividad11/convoying': typeof Actividad11ConvoyingRoute
-  '/actividad11/deadlock': typeof Actividad11DeadlockRoute
-  '/actividad11/eventos': typeof Actividad11EventosRoute
-  '/actividad11/false-sharing': typeof Actividad11FalseSharingRoute
-  '/actividad11/lectura-escritura': typeof Actividad11LecturaEscrituraRoute
-  '/actividad11/livelock': typeof Actividad11LivelockRoute
-  '/actividad11/lost-wakeup': typeof Actividad11LostWakeupRoute
-  '/actividad11/memory-consistency': typeof Actividad11MemoryConsistencyRoute
-  '/actividad11/priority-inversion': typeof Actividad11PriorityInversionRoute
-  '/actividad11/starvation': typeof Actividad11StarvationRoute
-  '/actividad11/thundering-herd': typeof Actividad11ThunderingHerdRoute
   '/ActividadesSeminarioSO': typeof ActividadesSeminarioSOIndexRoute
-  '/actividad11': typeof Actividad11IndexRoute
+  '/ActividadesSeminarioSO/actividad11/aba': typeof ActividadesSeminarioSOActividad11AbaRoute
+  '/ActividadesSeminarioSO/actividad11/bloqueos-innecesarios': typeof ActividadesSeminarioSOActividad11BloqueosInnecesariosRoute
+  '/ActividadesSeminarioSO/actividad11/condicion-carrera': typeof ActividadesSeminarioSOActividad11CondicionCarreraRoute
+  '/ActividadesSeminarioSO/actividad11/contencion-recursos': typeof ActividadesSeminarioSOActividad11ContencionRecursosRoute
+  '/ActividadesSeminarioSO/actividad11/convoying': typeof ActividadesSeminarioSOActividad11ConvoyingRoute
+  '/ActividadesSeminarioSO/actividad11/deadlock': typeof ActividadesSeminarioSOActividad11DeadlockRoute
+  '/ActividadesSeminarioSO/actividad11/eventos': typeof ActividadesSeminarioSOActividad11EventosRoute
+  '/ActividadesSeminarioSO/actividad11/false-sharing': typeof ActividadesSeminarioSOActividad11FalseSharingRoute
+  '/ActividadesSeminarioSO/actividad11/lectura-escritura': typeof ActividadesSeminarioSOActividad11LecturaEscrituraRoute
+  '/ActividadesSeminarioSO/actividad11/livelock': typeof ActividadesSeminarioSOActividad11LivelockRoute
+  '/ActividadesSeminarioSO/actividad11/lost-wakeup': typeof ActividadesSeminarioSOActividad11LostWakeupRoute
+  '/ActividadesSeminarioSO/actividad11/memory-consistency': typeof ActividadesSeminarioSOActividad11MemoryConsistencyRoute
+  '/ActividadesSeminarioSO/actividad11/priority-inversion': typeof ActividadesSeminarioSOActividad11PriorityInversionRoute
+  '/ActividadesSeminarioSO/actividad11/starvation': typeof ActividadesSeminarioSOActividad11StarvationRoute
+  '/ActividadesSeminarioSO/actividad11/thundering-herd': typeof ActividadesSeminarioSOActividad11ThunderingHerdRoute
+  '/ActividadesSeminarioSO/actividad12/problema1': typeof ActividadesSeminarioSOActividad12Problema1Route
+  '/ActividadesSeminarioSO/actividad11': typeof ActividadesSeminarioSOActividad11IndexRoute
+  '/ActividadesSeminarioSO/actividad12': typeof ActividadesSeminarioSOActividad12IndexRoute
+  '/ActividadesSeminarioSO/actividad13': typeof ActividadesSeminarioSOActividad13IndexRoute
+  '/ActividadesSeminarioSO/actividad14': typeof ActividadesSeminarioSOActividad14IndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
-  '/': typeof IndexRoute
-  '/actividad11': typeof Actividad11RouteWithChildren
-  '/actividad12': typeof Actividad12Route
-  '/actividad13': typeof Actividad13Route
-  '/actividad14': typeof Actividad14Route
-  '/actividad11/aba': typeof Actividad11AbaRoute
-  '/actividad11/bloqueos-innecesarios': typeof Actividad11BloqueosInnecesariosRoute
-  '/actividad11/condicion-carrera': typeof Actividad11CondicionCarreraRoute
-  '/actividad11/contencion-recursos': typeof Actividad11ContencionRecursosRoute
-  '/actividad11/convoying': typeof Actividad11ConvoyingRoute
-  '/actividad11/deadlock': typeof Actividad11DeadlockRoute
-  '/actividad11/eventos': typeof Actividad11EventosRoute
-  '/actividad11/false-sharing': typeof Actividad11FalseSharingRoute
-  '/actividad11/lectura-escritura': typeof Actividad11LecturaEscrituraRoute
-  '/actividad11/livelock': typeof Actividad11LivelockRoute
-  '/actividad11/lost-wakeup': typeof Actividad11LostWakeupRoute
-  '/actividad11/memory-consistency': typeof Actividad11MemoryConsistencyRoute
-  '/actividad11/priority-inversion': typeof Actividad11PriorityInversionRoute
-  '/actividad11/starvation': typeof Actividad11StarvationRoute
-  '/actividad11/thundering-herd': typeof Actividad11ThunderingHerdRoute
   '/ActividadesSeminarioSO/': typeof ActividadesSeminarioSOIndexRoute
-  '/actividad11/': typeof Actividad11IndexRoute
+  '/ActividadesSeminarioSO/actividad11/aba': typeof ActividadesSeminarioSOActividad11AbaRoute
+  '/ActividadesSeminarioSO/actividad11/bloqueos-innecesarios': typeof ActividadesSeminarioSOActividad11BloqueosInnecesariosRoute
+  '/ActividadesSeminarioSO/actividad11/condicion-carrera': typeof ActividadesSeminarioSOActividad11CondicionCarreraRoute
+  '/ActividadesSeminarioSO/actividad11/contencion-recursos': typeof ActividadesSeminarioSOActividad11ContencionRecursosRoute
+  '/ActividadesSeminarioSO/actividad11/convoying': typeof ActividadesSeminarioSOActividad11ConvoyingRoute
+  '/ActividadesSeminarioSO/actividad11/deadlock': typeof ActividadesSeminarioSOActividad11DeadlockRoute
+  '/ActividadesSeminarioSO/actividad11/eventos': typeof ActividadesSeminarioSOActividad11EventosRoute
+  '/ActividadesSeminarioSO/actividad11/false-sharing': typeof ActividadesSeminarioSOActividad11FalseSharingRoute
+  '/ActividadesSeminarioSO/actividad11/lectura-escritura': typeof ActividadesSeminarioSOActividad11LecturaEscrituraRoute
+  '/ActividadesSeminarioSO/actividad11/livelock': typeof ActividadesSeminarioSOActividad11LivelockRoute
+  '/ActividadesSeminarioSO/actividad11/lost-wakeup': typeof ActividadesSeminarioSOActividad11LostWakeupRoute
+  '/ActividadesSeminarioSO/actividad11/memory-consistency': typeof ActividadesSeminarioSOActividad11MemoryConsistencyRoute
+  '/ActividadesSeminarioSO/actividad11/priority-inversion': typeof ActividadesSeminarioSOActividad11PriorityInversionRoute
+  '/ActividadesSeminarioSO/actividad11/starvation': typeof ActividadesSeminarioSOActividad11StarvationRoute
+  '/ActividadesSeminarioSO/actividad11/thundering-herd': typeof ActividadesSeminarioSOActividad11ThunderingHerdRoute
+  '/ActividadesSeminarioSO/actividad12/problema1': typeof ActividadesSeminarioSOActividad12Problema1Route
+  '/ActividadesSeminarioSO/actividad11/': typeof ActividadesSeminarioSOActividad11IndexRoute
+  '/ActividadesSeminarioSO/actividad12/': typeof ActividadesSeminarioSOActividad12IndexRoute
+  '/ActividadesSeminarioSO/actividad13/': typeof ActividadesSeminarioSOActividad13IndexRoute
+  '/ActividadesSeminarioSO/actividad14/': typeof ActividadesSeminarioSOActividad14IndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    | '/'
-    | '/actividad11'
-    | '/actividad12'
-    | '/actividad13'
-    | '/actividad14'
-    | '/actividad11/aba'
-    | '/actividad11/bloqueos-innecesarios'
-    | '/actividad11/condicion-carrera'
-    | '/actividad11/contencion-recursos'
-    | '/actividad11/convoying'
-    | '/actividad11/deadlock'
-    | '/actividad11/eventos'
-    | '/actividad11/false-sharing'
-    | '/actividad11/lectura-escritura'
-    | '/actividad11/livelock'
-    | '/actividad11/lost-wakeup'
-    | '/actividad11/memory-consistency'
-    | '/actividad11/priority-inversion'
-    | '/actividad11/starvation'
-    | '/actividad11/thundering-herd'
     | '/ActividadesSeminarioSO'
-    | '/actividad11/'
+    | '/ActividadesSeminarioSO/actividad11/aba'
+    | '/ActividadesSeminarioSO/actividad11/bloqueos-innecesarios'
+    | '/ActividadesSeminarioSO/actividad11/condicion-carrera'
+    | '/ActividadesSeminarioSO/actividad11/contencion-recursos'
+    | '/ActividadesSeminarioSO/actividad11/convoying'
+    | '/ActividadesSeminarioSO/actividad11/deadlock'
+    | '/ActividadesSeminarioSO/actividad11/eventos'
+    | '/ActividadesSeminarioSO/actividad11/false-sharing'
+    | '/ActividadesSeminarioSO/actividad11/lectura-escritura'
+    | '/ActividadesSeminarioSO/actividad11/livelock'
+    | '/ActividadesSeminarioSO/actividad11/lost-wakeup'
+    | '/ActividadesSeminarioSO/actividad11/memory-consistency'
+    | '/ActividadesSeminarioSO/actividad11/priority-inversion'
+    | '/ActividadesSeminarioSO/actividad11/starvation'
+    | '/ActividadesSeminarioSO/actividad11/thundering-herd'
+    | '/ActividadesSeminarioSO/actividad12/problema1'
+    | '/ActividadesSeminarioSO/actividad11'
+    | '/ActividadesSeminarioSO/actividad12'
+    | '/ActividadesSeminarioSO/actividad13'
+    | '/ActividadesSeminarioSO/actividad14'
   fileRoutesByTo: FileRoutesByTo
   to:
-    | '/'
-    | '/actividad12'
-    | '/actividad13'
-    | '/actividad14'
-    | '/actividad11/aba'
-    | '/actividad11/bloqueos-innecesarios'
-    | '/actividad11/condicion-carrera'
-    | '/actividad11/contencion-recursos'
-    | '/actividad11/convoying'
-    | '/actividad11/deadlock'
-    | '/actividad11/eventos'
-    | '/actividad11/false-sharing'
-    | '/actividad11/lectura-escritura'
-    | '/actividad11/livelock'
-    | '/actividad11/lost-wakeup'
-    | '/actividad11/memory-consistency'
-    | '/actividad11/priority-inversion'
-    | '/actividad11/starvation'
-    | '/actividad11/thundering-herd'
     | '/ActividadesSeminarioSO'
-    | '/actividad11'
+    | '/ActividadesSeminarioSO/actividad11/aba'
+    | '/ActividadesSeminarioSO/actividad11/bloqueos-innecesarios'
+    | '/ActividadesSeminarioSO/actividad11/condicion-carrera'
+    | '/ActividadesSeminarioSO/actividad11/contencion-recursos'
+    | '/ActividadesSeminarioSO/actividad11/convoying'
+    | '/ActividadesSeminarioSO/actividad11/deadlock'
+    | '/ActividadesSeminarioSO/actividad11/eventos'
+    | '/ActividadesSeminarioSO/actividad11/false-sharing'
+    | '/ActividadesSeminarioSO/actividad11/lectura-escritura'
+    | '/ActividadesSeminarioSO/actividad11/livelock'
+    | '/ActividadesSeminarioSO/actividad11/lost-wakeup'
+    | '/ActividadesSeminarioSO/actividad11/memory-consistency'
+    | '/ActividadesSeminarioSO/actividad11/priority-inversion'
+    | '/ActividadesSeminarioSO/actividad11/starvation'
+    | '/ActividadesSeminarioSO/actividad11/thundering-herd'
+    | '/ActividadesSeminarioSO/actividad12/problema1'
+    | '/ActividadesSeminarioSO/actividad11'
+    | '/ActividadesSeminarioSO/actividad12'
+    | '/ActividadesSeminarioSO/actividad13'
+    | '/ActividadesSeminarioSO/actividad14'
   id:
     | '__root__'
-    | '/'
-    | '/actividad11'
-    | '/actividad12'
-    | '/actividad13'
-    | '/actividad14'
-    | '/actividad11/aba'
-    | '/actividad11/bloqueos-innecesarios'
-    | '/actividad11/condicion-carrera'
-    | '/actividad11/contencion-recursos'
-    | '/actividad11/convoying'
-    | '/actividad11/deadlock'
-    | '/actividad11/eventos'
-    | '/actividad11/false-sharing'
-    | '/actividad11/lectura-escritura'
-    | '/actividad11/livelock'
-    | '/actividad11/lost-wakeup'
-    | '/actividad11/memory-consistency'
-    | '/actividad11/priority-inversion'
-    | '/actividad11/starvation'
-    | '/actividad11/thundering-herd'
     | '/ActividadesSeminarioSO/'
-    | '/actividad11/'
+    | '/ActividadesSeminarioSO/actividad11/aba'
+    | '/ActividadesSeminarioSO/actividad11/bloqueos-innecesarios'
+    | '/ActividadesSeminarioSO/actividad11/condicion-carrera'
+    | '/ActividadesSeminarioSO/actividad11/contencion-recursos'
+    | '/ActividadesSeminarioSO/actividad11/convoying'
+    | '/ActividadesSeminarioSO/actividad11/deadlock'
+    | '/ActividadesSeminarioSO/actividad11/eventos'
+    | '/ActividadesSeminarioSO/actividad11/false-sharing'
+    | '/ActividadesSeminarioSO/actividad11/lectura-escritura'
+    | '/ActividadesSeminarioSO/actividad11/livelock'
+    | '/ActividadesSeminarioSO/actividad11/lost-wakeup'
+    | '/ActividadesSeminarioSO/actividad11/memory-consistency'
+    | '/ActividadesSeminarioSO/actividad11/priority-inversion'
+    | '/ActividadesSeminarioSO/actividad11/starvation'
+    | '/ActividadesSeminarioSO/actividad11/thundering-herd'
+    | '/ActividadesSeminarioSO/actividad12/problema1'
+    | '/ActividadesSeminarioSO/actividad11/'
+    | '/ActividadesSeminarioSO/actividad12/'
+    | '/ActividadesSeminarioSO/actividad13/'
+    | '/ActividadesSeminarioSO/actividad14/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
-  IndexRoute: typeof IndexRoute
-  Actividad11Route: typeof Actividad11RouteWithChildren
-  Actividad12Route: typeof Actividad12Route
-  Actividad13Route: typeof Actividad13Route
-  Actividad14Route: typeof Actividad14Route
   ActividadesSeminarioSOIndexRoute: typeof ActividadesSeminarioSOIndexRoute
+  ActividadesSeminarioSOActividad11AbaRoute: typeof ActividadesSeminarioSOActividad11AbaRoute
+  ActividadesSeminarioSOActividad11BloqueosInnecesariosRoute: typeof ActividadesSeminarioSOActividad11BloqueosInnecesariosRoute
+  ActividadesSeminarioSOActividad11CondicionCarreraRoute: typeof ActividadesSeminarioSOActividad11CondicionCarreraRoute
+  ActividadesSeminarioSOActividad11ContencionRecursosRoute: typeof ActividadesSeminarioSOActividad11ContencionRecursosRoute
+  ActividadesSeminarioSOActividad11ConvoyingRoute: typeof ActividadesSeminarioSOActividad11ConvoyingRoute
+  ActividadesSeminarioSOActividad11DeadlockRoute: typeof ActividadesSeminarioSOActividad11DeadlockRoute
+  ActividadesSeminarioSOActividad11EventosRoute: typeof ActividadesSeminarioSOActividad11EventosRoute
+  ActividadesSeminarioSOActividad11FalseSharingRoute: typeof ActividadesSeminarioSOActividad11FalseSharingRoute
+  ActividadesSeminarioSOActividad11LecturaEscrituraRoute: typeof ActividadesSeminarioSOActividad11LecturaEscrituraRoute
+  ActividadesSeminarioSOActividad11LivelockRoute: typeof ActividadesSeminarioSOActividad11LivelockRoute
+  ActividadesSeminarioSOActividad11LostWakeupRoute: typeof ActividadesSeminarioSOActividad11LostWakeupRoute
+  ActividadesSeminarioSOActividad11MemoryConsistencyRoute: typeof ActividadesSeminarioSOActividad11MemoryConsistencyRoute
+  ActividadesSeminarioSOActividad11PriorityInversionRoute: typeof ActividadesSeminarioSOActividad11PriorityInversionRoute
+  ActividadesSeminarioSOActividad11StarvationRoute: typeof ActividadesSeminarioSOActividad11StarvationRoute
+  ActividadesSeminarioSOActividad11ThunderingHerdRoute: typeof ActividadesSeminarioSOActividad11ThunderingHerdRoute
+  ActividadesSeminarioSOActividad12Problema1Route: typeof ActividadesSeminarioSOActividad12Problema1Route
+  ActividadesSeminarioSOActividad11IndexRoute: typeof ActividadesSeminarioSOActividad11IndexRoute
+  ActividadesSeminarioSOActividad12IndexRoute: typeof ActividadesSeminarioSOActividad12IndexRoute
+  ActividadesSeminarioSOActividad13IndexRoute: typeof ActividadesSeminarioSOActividad13IndexRoute
+  ActividadesSeminarioSOActividad14IndexRoute: typeof ActividadesSeminarioSOActividad14IndexRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/actividad14': {
-      id: '/actividad14'
-      path: '/actividad14'
-      fullPath: '/actividad14'
-      preLoaderRoute: typeof Actividad14RouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/actividad13': {
-      id: '/actividad13'
-      path: '/actividad13'
-      fullPath: '/actividad13'
-      preLoaderRoute: typeof Actividad13RouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/actividad12': {
-      id: '/actividad12'
-      path: '/actividad12'
-      fullPath: '/actividad12'
-      preLoaderRoute: typeof Actividad12RouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/actividad11': {
-      id: '/actividad11'
-      path: '/actividad11'
-      fullPath: '/actividad11'
-      preLoaderRoute: typeof Actividad11RouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/actividad11/': {
-      id: '/actividad11/'
-      path: '/'
-      fullPath: '/actividad11/'
-      preLoaderRoute: typeof Actividad11IndexRouteImport
-      parentRoute: typeof Actividad11Route
-    }
     '/ActividadesSeminarioSO/': {
       id: '/ActividadesSeminarioSO/'
       path: '/ActividadesSeminarioSO'
@@ -357,163 +333,191 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ActividadesSeminarioSOIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/actividad11/thundering-herd': {
-      id: '/actividad11/thundering-herd'
-      path: '/thundering-herd'
-      fullPath: '/actividad11/thundering-herd'
-      preLoaderRoute: typeof Actividad11ThunderingHerdRouteImport
-      parentRoute: typeof Actividad11Route
+    '/ActividadesSeminarioSO/actividad14/': {
+      id: '/ActividadesSeminarioSO/actividad14/'
+      path: '/ActividadesSeminarioSO/actividad14'
+      fullPath: '/ActividadesSeminarioSO/actividad14'
+      preLoaderRoute: typeof ActividadesSeminarioSOActividad14IndexRouteImport
+      parentRoute: typeof rootRouteImport
     }
-    '/actividad11/starvation': {
-      id: '/actividad11/starvation'
-      path: '/starvation'
-      fullPath: '/actividad11/starvation'
-      preLoaderRoute: typeof Actividad11StarvationRouteImport
-      parentRoute: typeof Actividad11Route
+    '/ActividadesSeminarioSO/actividad13/': {
+      id: '/ActividadesSeminarioSO/actividad13/'
+      path: '/ActividadesSeminarioSO/actividad13'
+      fullPath: '/ActividadesSeminarioSO/actividad13'
+      preLoaderRoute: typeof ActividadesSeminarioSOActividad13IndexRouteImport
+      parentRoute: typeof rootRouteImport
     }
-    '/actividad11/priority-inversion': {
-      id: '/actividad11/priority-inversion'
-      path: '/priority-inversion'
-      fullPath: '/actividad11/priority-inversion'
-      preLoaderRoute: typeof Actividad11PriorityInversionRouteImport
-      parentRoute: typeof Actividad11Route
+    '/ActividadesSeminarioSO/actividad12/': {
+      id: '/ActividadesSeminarioSO/actividad12/'
+      path: '/ActividadesSeminarioSO/actividad12'
+      fullPath: '/ActividadesSeminarioSO/actividad12'
+      preLoaderRoute: typeof ActividadesSeminarioSOActividad12IndexRouteImport
+      parentRoute: typeof rootRouteImport
     }
-    '/actividad11/memory-consistency': {
-      id: '/actividad11/memory-consistency'
-      path: '/memory-consistency'
-      fullPath: '/actividad11/memory-consistency'
-      preLoaderRoute: typeof Actividad11MemoryConsistencyRouteImport
-      parentRoute: typeof Actividad11Route
+    '/ActividadesSeminarioSO/actividad11/': {
+      id: '/ActividadesSeminarioSO/actividad11/'
+      path: '/ActividadesSeminarioSO/actividad11'
+      fullPath: '/ActividadesSeminarioSO/actividad11'
+      preLoaderRoute: typeof ActividadesSeminarioSOActividad11IndexRouteImport
+      parentRoute: typeof rootRouteImport
     }
-    '/actividad11/lost-wakeup': {
-      id: '/actividad11/lost-wakeup'
-      path: '/lost-wakeup'
-      fullPath: '/actividad11/lost-wakeup'
-      preLoaderRoute: typeof Actividad11LostWakeupRouteImport
-      parentRoute: typeof Actividad11Route
+    '/ActividadesSeminarioSO/actividad12/problema1': {
+      id: '/ActividadesSeminarioSO/actividad12/problema1'
+      path: '/ActividadesSeminarioSO/actividad12/problema1'
+      fullPath: '/ActividadesSeminarioSO/actividad12/problema1'
+      preLoaderRoute: typeof ActividadesSeminarioSOActividad12Problema1RouteImport
+      parentRoute: typeof rootRouteImport
     }
-    '/actividad11/livelock': {
-      id: '/actividad11/livelock'
-      path: '/livelock'
-      fullPath: '/actividad11/livelock'
-      preLoaderRoute: typeof Actividad11LivelockRouteImport
-      parentRoute: typeof Actividad11Route
+    '/ActividadesSeminarioSO/actividad11/thundering-herd': {
+      id: '/ActividadesSeminarioSO/actividad11/thundering-herd'
+      path: '/ActividadesSeminarioSO/actividad11/thundering-herd'
+      fullPath: '/ActividadesSeminarioSO/actividad11/thundering-herd'
+      preLoaderRoute: typeof ActividadesSeminarioSOActividad11ThunderingHerdRouteImport
+      parentRoute: typeof rootRouteImport
     }
-    '/actividad11/lectura-escritura': {
-      id: '/actividad11/lectura-escritura'
-      path: '/lectura-escritura'
-      fullPath: '/actividad11/lectura-escritura'
-      preLoaderRoute: typeof Actividad11LecturaEscrituraRouteImport
-      parentRoute: typeof Actividad11Route
+    '/ActividadesSeminarioSO/actividad11/starvation': {
+      id: '/ActividadesSeminarioSO/actividad11/starvation'
+      path: '/ActividadesSeminarioSO/actividad11/starvation'
+      fullPath: '/ActividadesSeminarioSO/actividad11/starvation'
+      preLoaderRoute: typeof ActividadesSeminarioSOActividad11StarvationRouteImport
+      parentRoute: typeof rootRouteImport
     }
-    '/actividad11/false-sharing': {
-      id: '/actividad11/false-sharing'
-      path: '/false-sharing'
-      fullPath: '/actividad11/false-sharing'
-      preLoaderRoute: typeof Actividad11FalseSharingRouteImport
-      parentRoute: typeof Actividad11Route
+    '/ActividadesSeminarioSO/actividad11/priority-inversion': {
+      id: '/ActividadesSeminarioSO/actividad11/priority-inversion'
+      path: '/ActividadesSeminarioSO/actividad11/priority-inversion'
+      fullPath: '/ActividadesSeminarioSO/actividad11/priority-inversion'
+      preLoaderRoute: typeof ActividadesSeminarioSOActividad11PriorityInversionRouteImport
+      parentRoute: typeof rootRouteImport
     }
-    '/actividad11/eventos': {
-      id: '/actividad11/eventos'
-      path: '/eventos'
-      fullPath: '/actividad11/eventos'
-      preLoaderRoute: typeof Actividad11EventosRouteImport
-      parentRoute: typeof Actividad11Route
+    '/ActividadesSeminarioSO/actividad11/memory-consistency': {
+      id: '/ActividadesSeminarioSO/actividad11/memory-consistency'
+      path: '/ActividadesSeminarioSO/actividad11/memory-consistency'
+      fullPath: '/ActividadesSeminarioSO/actividad11/memory-consistency'
+      preLoaderRoute: typeof ActividadesSeminarioSOActividad11MemoryConsistencyRouteImport
+      parentRoute: typeof rootRouteImport
     }
-    '/actividad11/deadlock': {
-      id: '/actividad11/deadlock'
-      path: '/deadlock'
-      fullPath: '/actividad11/deadlock'
-      preLoaderRoute: typeof Actividad11DeadlockRouteImport
-      parentRoute: typeof Actividad11Route
+    '/ActividadesSeminarioSO/actividad11/lost-wakeup': {
+      id: '/ActividadesSeminarioSO/actividad11/lost-wakeup'
+      path: '/ActividadesSeminarioSO/actividad11/lost-wakeup'
+      fullPath: '/ActividadesSeminarioSO/actividad11/lost-wakeup'
+      preLoaderRoute: typeof ActividadesSeminarioSOActividad11LostWakeupRouteImport
+      parentRoute: typeof rootRouteImport
     }
-    '/actividad11/convoying': {
-      id: '/actividad11/convoying'
-      path: '/convoying'
-      fullPath: '/actividad11/convoying'
-      preLoaderRoute: typeof Actividad11ConvoyingRouteImport
-      parentRoute: typeof Actividad11Route
+    '/ActividadesSeminarioSO/actividad11/livelock': {
+      id: '/ActividadesSeminarioSO/actividad11/livelock'
+      path: '/ActividadesSeminarioSO/actividad11/livelock'
+      fullPath: '/ActividadesSeminarioSO/actividad11/livelock'
+      preLoaderRoute: typeof ActividadesSeminarioSOActividad11LivelockRouteImport
+      parentRoute: typeof rootRouteImport
     }
-    '/actividad11/contencion-recursos': {
-      id: '/actividad11/contencion-recursos'
-      path: '/contencion-recursos'
-      fullPath: '/actividad11/contencion-recursos'
-      preLoaderRoute: typeof Actividad11ContencionRecursosRouteImport
-      parentRoute: typeof Actividad11Route
+    '/ActividadesSeminarioSO/actividad11/lectura-escritura': {
+      id: '/ActividadesSeminarioSO/actividad11/lectura-escritura'
+      path: '/ActividadesSeminarioSO/actividad11/lectura-escritura'
+      fullPath: '/ActividadesSeminarioSO/actividad11/lectura-escritura'
+      preLoaderRoute: typeof ActividadesSeminarioSOActividad11LecturaEscrituraRouteImport
+      parentRoute: typeof rootRouteImport
     }
-    '/actividad11/condicion-carrera': {
-      id: '/actividad11/condicion-carrera'
-      path: '/condicion-carrera'
-      fullPath: '/actividad11/condicion-carrera'
-      preLoaderRoute: typeof Actividad11CondicionCarreraRouteImport
-      parentRoute: typeof Actividad11Route
+    '/ActividadesSeminarioSO/actividad11/false-sharing': {
+      id: '/ActividadesSeminarioSO/actividad11/false-sharing'
+      path: '/ActividadesSeminarioSO/actividad11/false-sharing'
+      fullPath: '/ActividadesSeminarioSO/actividad11/false-sharing'
+      preLoaderRoute: typeof ActividadesSeminarioSOActividad11FalseSharingRouteImport
+      parentRoute: typeof rootRouteImport
     }
-    '/actividad11/bloqueos-innecesarios': {
-      id: '/actividad11/bloqueos-innecesarios'
-      path: '/bloqueos-innecesarios'
-      fullPath: '/actividad11/bloqueos-innecesarios'
-      preLoaderRoute: typeof Actividad11BloqueosInnecesariosRouteImport
-      parentRoute: typeof Actividad11Route
+    '/ActividadesSeminarioSO/actividad11/eventos': {
+      id: '/ActividadesSeminarioSO/actividad11/eventos'
+      path: '/ActividadesSeminarioSO/actividad11/eventos'
+      fullPath: '/ActividadesSeminarioSO/actividad11/eventos'
+      preLoaderRoute: typeof ActividadesSeminarioSOActividad11EventosRouteImport
+      parentRoute: typeof rootRouteImport
     }
-    '/actividad11/aba': {
-      id: '/actividad11/aba'
-      path: '/aba'
-      fullPath: '/actividad11/aba'
-      preLoaderRoute: typeof Actividad11AbaRouteImport
-      parentRoute: typeof Actividad11Route
+    '/ActividadesSeminarioSO/actividad11/deadlock': {
+      id: '/ActividadesSeminarioSO/actividad11/deadlock'
+      path: '/ActividadesSeminarioSO/actividad11/deadlock'
+      fullPath: '/ActividadesSeminarioSO/actividad11/deadlock'
+      preLoaderRoute: typeof ActividadesSeminarioSOActividad11DeadlockRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ActividadesSeminarioSO/actividad11/convoying': {
+      id: '/ActividadesSeminarioSO/actividad11/convoying'
+      path: '/ActividadesSeminarioSO/actividad11/convoying'
+      fullPath: '/ActividadesSeminarioSO/actividad11/convoying'
+      preLoaderRoute: typeof ActividadesSeminarioSOActividad11ConvoyingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ActividadesSeminarioSO/actividad11/contencion-recursos': {
+      id: '/ActividadesSeminarioSO/actividad11/contencion-recursos'
+      path: '/ActividadesSeminarioSO/actividad11/contencion-recursos'
+      fullPath: '/ActividadesSeminarioSO/actividad11/contencion-recursos'
+      preLoaderRoute: typeof ActividadesSeminarioSOActividad11ContencionRecursosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ActividadesSeminarioSO/actividad11/condicion-carrera': {
+      id: '/ActividadesSeminarioSO/actividad11/condicion-carrera'
+      path: '/ActividadesSeminarioSO/actividad11/condicion-carrera'
+      fullPath: '/ActividadesSeminarioSO/actividad11/condicion-carrera'
+      preLoaderRoute: typeof ActividadesSeminarioSOActividad11CondicionCarreraRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ActividadesSeminarioSO/actividad11/bloqueos-innecesarios': {
+      id: '/ActividadesSeminarioSO/actividad11/bloqueos-innecesarios'
+      path: '/ActividadesSeminarioSO/actividad11/bloqueos-innecesarios'
+      fullPath: '/ActividadesSeminarioSO/actividad11/bloqueos-innecesarios'
+      preLoaderRoute: typeof ActividadesSeminarioSOActividad11BloqueosInnecesariosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ActividadesSeminarioSO/actividad11/aba': {
+      id: '/ActividadesSeminarioSO/actividad11/aba'
+      path: '/ActividadesSeminarioSO/actividad11/aba'
+      fullPath: '/ActividadesSeminarioSO/actividad11/aba'
+      preLoaderRoute: typeof ActividadesSeminarioSOActividad11AbaRouteImport
+      parentRoute: typeof rootRouteImport
     }
   }
 }
 
-interface Actividad11RouteChildren {
-  Actividad11AbaRoute: typeof Actividad11AbaRoute
-  Actividad11BloqueosInnecesariosRoute: typeof Actividad11BloqueosInnecesariosRoute
-  Actividad11CondicionCarreraRoute: typeof Actividad11CondicionCarreraRoute
-  Actividad11ContencionRecursosRoute: typeof Actividad11ContencionRecursosRoute
-  Actividad11ConvoyingRoute: typeof Actividad11ConvoyingRoute
-  Actividad11DeadlockRoute: typeof Actividad11DeadlockRoute
-  Actividad11EventosRoute: typeof Actividad11EventosRoute
-  Actividad11FalseSharingRoute: typeof Actividad11FalseSharingRoute
-  Actividad11LecturaEscrituraRoute: typeof Actividad11LecturaEscrituraRoute
-  Actividad11LivelockRoute: typeof Actividad11LivelockRoute
-  Actividad11LostWakeupRoute: typeof Actividad11LostWakeupRoute
-  Actividad11MemoryConsistencyRoute: typeof Actividad11MemoryConsistencyRoute
-  Actividad11PriorityInversionRoute: typeof Actividad11PriorityInversionRoute
-  Actividad11StarvationRoute: typeof Actividad11StarvationRoute
-  Actividad11ThunderingHerdRoute: typeof Actividad11ThunderingHerdRoute
-  Actividad11IndexRoute: typeof Actividad11IndexRoute
-}
-
-const Actividad11RouteChildren: Actividad11RouteChildren = {
-  Actividad11AbaRoute: Actividad11AbaRoute,
-  Actividad11BloqueosInnecesariosRoute: Actividad11BloqueosInnecesariosRoute,
-  Actividad11CondicionCarreraRoute: Actividad11CondicionCarreraRoute,
-  Actividad11ContencionRecursosRoute: Actividad11ContencionRecursosRoute,
-  Actividad11ConvoyingRoute: Actividad11ConvoyingRoute,
-  Actividad11DeadlockRoute: Actividad11DeadlockRoute,
-  Actividad11EventosRoute: Actividad11EventosRoute,
-  Actividad11FalseSharingRoute: Actividad11FalseSharingRoute,
-  Actividad11LecturaEscrituraRoute: Actividad11LecturaEscrituraRoute,
-  Actividad11LivelockRoute: Actividad11LivelockRoute,
-  Actividad11LostWakeupRoute: Actividad11LostWakeupRoute,
-  Actividad11MemoryConsistencyRoute: Actividad11MemoryConsistencyRoute,
-  Actividad11PriorityInversionRoute: Actividad11PriorityInversionRoute,
-  Actividad11StarvationRoute: Actividad11StarvationRoute,
-  Actividad11ThunderingHerdRoute: Actividad11ThunderingHerdRoute,
-  Actividad11IndexRoute: Actividad11IndexRoute,
-}
-
-const Actividad11RouteWithChildren = Actividad11Route._addFileChildren(
-  Actividad11RouteChildren,
-)
-
 const rootRouteChildren: RootRouteChildren = {
-  IndexRoute: IndexRoute,
-  Actividad11Route: Actividad11RouteWithChildren,
-  Actividad12Route: Actividad12Route,
-  Actividad13Route: Actividad13Route,
-  Actividad14Route: Actividad14Route,
   ActividadesSeminarioSOIndexRoute: ActividadesSeminarioSOIndexRoute,
+  ActividadesSeminarioSOActividad11AbaRoute:
+    ActividadesSeminarioSOActividad11AbaRoute,
+  ActividadesSeminarioSOActividad11BloqueosInnecesariosRoute:
+    ActividadesSeminarioSOActividad11BloqueosInnecesariosRoute,
+  ActividadesSeminarioSOActividad11CondicionCarreraRoute:
+    ActividadesSeminarioSOActividad11CondicionCarreraRoute,
+  ActividadesSeminarioSOActividad11ContencionRecursosRoute:
+    ActividadesSeminarioSOActividad11ContencionRecursosRoute,
+  ActividadesSeminarioSOActividad11ConvoyingRoute:
+    ActividadesSeminarioSOActividad11ConvoyingRoute,
+  ActividadesSeminarioSOActividad11DeadlockRoute:
+    ActividadesSeminarioSOActividad11DeadlockRoute,
+  ActividadesSeminarioSOActividad11EventosRoute:
+    ActividadesSeminarioSOActividad11EventosRoute,
+  ActividadesSeminarioSOActividad11FalseSharingRoute:
+    ActividadesSeminarioSOActividad11FalseSharingRoute,
+  ActividadesSeminarioSOActividad11LecturaEscrituraRoute:
+    ActividadesSeminarioSOActividad11LecturaEscrituraRoute,
+  ActividadesSeminarioSOActividad11LivelockRoute:
+    ActividadesSeminarioSOActividad11LivelockRoute,
+  ActividadesSeminarioSOActividad11LostWakeupRoute:
+    ActividadesSeminarioSOActividad11LostWakeupRoute,
+  ActividadesSeminarioSOActividad11MemoryConsistencyRoute:
+    ActividadesSeminarioSOActividad11MemoryConsistencyRoute,
+  ActividadesSeminarioSOActividad11PriorityInversionRoute:
+    ActividadesSeminarioSOActividad11PriorityInversionRoute,
+  ActividadesSeminarioSOActividad11StarvationRoute:
+    ActividadesSeminarioSOActividad11StarvationRoute,
+  ActividadesSeminarioSOActividad11ThunderingHerdRoute:
+    ActividadesSeminarioSOActividad11ThunderingHerdRoute,
+  ActividadesSeminarioSOActividad12Problema1Route:
+    ActividadesSeminarioSOActividad12Problema1Route,
+  ActividadesSeminarioSOActividad11IndexRoute:
+    ActividadesSeminarioSOActividad11IndexRoute,
+  ActividadesSeminarioSOActividad12IndexRoute:
+    ActividadesSeminarioSOActividad12IndexRoute,
+  ActividadesSeminarioSOActividad13IndexRoute:
+    ActividadesSeminarioSOActividad13IndexRoute,
+  ActividadesSeminarioSOActividad14IndexRoute:
+    ActividadesSeminarioSOActividad14IndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
