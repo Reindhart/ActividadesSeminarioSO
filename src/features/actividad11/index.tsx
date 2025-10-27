@@ -11,7 +11,7 @@ const problemas = [
   { id: 'bloqueos-innecesarios', titulo: 'Bloqueos Innecesarios', icon: '🚧', color: 'from-blue-400 to-blue-600' },
   { id: 'eventos', titulo: 'Eventos', icon: '📡', color: 'from-indigo-400 to-indigo-600' },
   { id: 'priority-inversion', titulo: 'Priority Inversion', icon: '⬆️', color: 'from-purple-400 to-purple-600' },
-  { id: 'aba-problem', titulo: 'ABA Problem', icon: '🔀', color: 'from-pink-400 to-pink-600' },
+  { id: 'aba', titulo: 'ABA Problem', icon: '🔀', color: 'from-pink-400 to-pink-600' },
   { id: 'memory-consistency', titulo: 'Memory Consistency', icon: '💾', color: 'from-rose-400 to-rose-600' },
   { id: 'thundering-herd', titulo: 'Thundering Herd', icon: '🦬', color: 'from-amber-400 to-amber-600' },
   { id: 'convoying', titulo: 'Convoying', icon: '🚛', color: 'from-lime-400 to-lime-600' },
@@ -91,6 +91,7 @@ export default function Actividad11() {
             {problemas.map((problema) => (
               <Link
                 key={problema.id}
+                // @ts-expect-error - Dynamic route construction for problem pages
                 to={`/ActividadesSeminarioSO/actividad11/${problema.id}`}
                 className={`block rounded-lg bg-gradient-to-br ${problema.color} p-6 shadow-lg transition-all hover:shadow-xl hover:scale-105`}
               >
