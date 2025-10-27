@@ -214,17 +214,55 @@ export default function Actividad13() {
 
           {/* Contenido de videos */}
           <div className="p-8">
-            <div className="aspect-video bg-gray-100 rounded-lg flex items-center justify-center border-2 border-dashed border-gray-300">
-              <div className="text-center">
-                <PlayCircle className="size-16 text-gray-400 mx-auto mb-4" />
-                <p className="text-gray-600 font-semibold">
-                  Video demostrativo de los scripts en {activeVideosTab === 'windows' ? 'Windows' : 'Linux'}
-                </p>
-                <p className="text-gray-400 text-sm mt-2">
-                  Próximamente disponible
-                </p>
+            {activeVideosTab === 'linux' ? (
+              <div className="space-y-4">
+                <div className="aspect-video bg-black rounded-lg overflow-hidden border border-gray-300">
+                  {/* Video de YouTube - Scripts en Linux */}
+                  <iframe
+                    className="w-full h-full"
+                    src="https://www.youtube.com/embed/2pI4r7WQpGw"
+                    title="Video demostrativo scripts Linux"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  />
+                </div>
+
+                <div className="flex justify-center">
+                  {/* Enlace de descarga al script en public/files/Postinstalacion_debianKDE.sh */}
+                  <a
+                    href={`/ActividadesSeminarioSO/files/Postinstalacion_debianKDE.sh`}
+                    download
+                    className="inline-flex items-center px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700 transition-colors text-sm"
+                  >
+                    Descargar script: Postinstalacion_debianKDE.sh
+                  </a>
+                </div>
               </div>
-            </div>
+            ) : (
+              <div className="space-y-4">
+                <div className="aspect-video bg-black rounded-lg overflow-hidden border border-gray-300">
+                  {/* Video de YouTube - Scripts en Windows (mismo video temporalmente) */}
+                  <iframe
+                    className="w-full h-full"
+                    src="https://www.youtube.com/embed/VSpzbRTq9sM"
+                    title="Video demostrativo scripts Windows"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  />
+                </div>
+
+                <div className="flex justify-center">
+                  {/* Enlace de descarga al script en public/files/AlgoBien.ps1 */}
+                  <a
+                    href={`/ActividadesSeminarioSO/files/AlgoBien.ps1`}
+                    download
+                    className="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition-colors text-sm"
+                  >
+                    Descargar script: AlgoBien.ps1
+                  </a>
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </div>
